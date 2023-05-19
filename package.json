@@ -1,14 +1,14 @@
 {
     "name": "ku_swiper",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "TYPO3 extension. Contains two TYPO3 content elements - one for slides containing image and/or text, one for adding existing records.",
     "scripts": {
         "concat:css": "globcat \"Resources/Public/Css/Src/**/*.css\" --output \"Resources/Public/Css/Dist/swiper-bundle.css\"",
         "minify:css": "postcss \"Resources/Public/Css/Dist/swiper-bundle.css\" --config Build/postcss.config.js \"Resources/Public/Css/Dist/*.css\" \"!Resources/Public/Css/Dist/*.min.css\" --output \"Resources/Public/Css/Dist/swiper-bundle.min.css\"",
         "concat:js": "globcat \"Resources/Public/JavaScript/Src/**/*.js\" --output \"Resources/Public/JavaScript/Dist/swiper-bundle.js\"",
         "lint:js": "eslint --cache --cache-location .cache/.eslintcache",
-        "minify:js": "terser \"Resources/Public/JavaScript/Src/swiper-bundle.js\" --output \"Resources/Public/JavaScript/Dist/swiper-bundle.min.js\" --format quote_style=1 --compress passes=2 --source-map",
-        "build:js": "npm-run-all lint:js && npm-run-all minify:js",
+        "minify:js": "terser \"Resources/Public/JavaScript/Dist/swiper-bundle.js\" --output \"Resources/Public/JavaScript/Dist/swiper-bundle.min.js\" --format quote_style=1 --compress passes=2 --source-map",
+        "build:js": "npm-run-all lint:js && npm-run-all concat:js && npm-run-all minify:js",
         "build:css": "npm-run-all concat:css && npm-run-all minify:css",
         "watch:css": "onchange \"Resources/Public/Css/Src/*.css\" -- npm-run-all build:css",
         "watch:js": "onchange \"Resources/Public/JavaScript/Src/*.js\" -- npm-run-all build:js",
@@ -20,7 +20,7 @@
         "PHP",
         "JavaScript"
     ],
-    "author": "Nanna Ellegaard",
+    "author": "Nanna Ellegaard, NEL",
     "license": "ISC",
     "devDependencies": {
         "autoprefixer": "^10.4.14",

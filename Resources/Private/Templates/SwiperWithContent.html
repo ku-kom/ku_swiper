@@ -8,9 +8,61 @@
             <f:cObject typoscriptObjectPath="lib.tx_ku_swiper_pages" data="{data}" />
         </f:if>
     </f:comment>
-    <f:if condition="{records}">
-        <f:variable name="totalcount">{records -> f:count()}</f:variable>
-        <f:variable name="swiper">swiper{data.uid -> f:format.raw()}</f:variable>
+    <f:variable name="swiper" value="swiper{data.uid -> f:format.raw()}" />
+        <f:variable name="totalcount" value="{records -> f:count()}" />
+        <f:comment>
+            <!--
+              Below: Function settings
+          -->
+        </f:comment>
+        <f:if condition="{totalcount} > 1 && {flexFormData.autoplay} === '1'">
+            <f:then>
+                <f:variable name="autoplay">{"delay": <f:format.raw>{flexFormData.slideSpeed}</f:format.raw>, "disableOnInteraction": false}</f:variable>
+            </f:then>
+            <f:else>
+                <f:variable name="autoplay">false</f:variable>
+            </f:else>
+        </f:if>
+        <f:if condition="{flexFormData.loop} === '1'">
+            <f:then>
+                <f:variable name="loop">true</f:variable>
+            </f:then>
+            <f:else>
+                <f:variable name="loop">false</f:variable>
+            </f:else>
+        </f:if>
+        <f:if condition="{totalcount} < 2 && {flexFormData.autoplay} === '1'">
+            <f:variable name="loop">false</f:variable>
+        </f:if>
+        <f:if condition="{flexFormData.fade} === '1'">
+            <f:then>
+                <f:variable name="fade">"fade", "fadeEffect": { "crossFade": true }</f:variable>
+            </f:then>
+            <f:else>
+                <f:variable name="fade">"slide"</f:variable>
+            </f:else>
+        </f:if>
+        <f:variable name="centeredSlides" value="{flexFormData.centeredSlides -> f:format.raw()}" />
+        <f:variable name="slidesToShow" value="{flexFormData.slidesToShow-smartphone -> f:format.raw()}" />
+        <f:variable name="slidesPerGroup" value="{flexFormData.slidesToScroll-smartphone -> f:format.raw()}" />
+        <f:comment>
+            <!--
+              Below: breakpoint settings
+          -->
+        </f:comment>
+        <f:variable name="breakpoints">"breakpoints": {"576": {"slidesPerView": <f:format.raw>{flexFormData.slidesToShow-smartphone}</f:format.raw>, "slidesPerGroup": <f:format.raw>{flexFormData.slidesToScroll-smartphone}</f:format.raw>},"768": {"slidesPerView": <f:format.raw>{flexFormData.slidesToShow-tablet}</f:format.raw>,"slidesPerGroup": <f:format.raw>{flexFormData.slidesToScroll-tablet}</f:format.raw>},"992": {"slidesPerView": <f:format.raw>{flexFormData.slidesToShow-desktop}</f:format.raw>,"slidesPerGroup": <f:format.raw>{flexFormData.slidesToScroll-desktop}</f:format.raw>},"1200": {"slidesPerView": <f:format.raw>{flexFormData.slidesToShow-widescreen}</f:format.raw>,"slidesPerGroup": <f:format.raw>{flexFormData.slidesToScroll-widescreen}</f:format.raw>}}</f:variable>
+        <f:comment>
+            <!--
+              Below: all swiper settings combined
+          -->
+        </f:comment>
+        <f:variable name="swiperSettings">{"autoplay": {autoplay}, "loop": {loop}, "initialSlide": {flexFormData.startSlide}, "centeredSlides": {centeredSlides}, "effect": {fade}, "slidesPerView": {flexFormData.slidesToShow-smartphone}, "slidesPerGroup": {flexFormData.slidesToScroll-smartphone}, {breakpoints} <f:format.raw>}</f:format.raw>
+        </f:variable>
+        <f:comment>
+            <!--
+              Below: CSS classes to show/hids arrows and dots
+          -->
+        </f:comment>
         <f:variable name="navigation-sm" value="{flexFormData.arrows-smartphone -> f:format.raw()}" />
         <f:if condition="{navigation-sm} === '0'">
             <f:variable name="nav-sm" value="hide-navigation-sm" />
@@ -43,8 +95,9 @@
         <f:if condition="{pagination-xl} === '0'">
             <f:variable name="pag-xl" value="hide-pagination-xl" />
         </f:if>
+
         <div class="swiper-container {nav-sm} {nav-md} {nav-lg} {nav-xl} {pag-sm} {pag-md} {pag-lg} {pag-xl}">
-            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}">
+            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}" data-id="{swiper}" data-count="{totalcount}" data-slides='{swiperSettings}'>
                 <div class="swiper-wrapper">
                     <f:for each="{records}" as="record">
                         <f:render partial="SlideContent" arguments="{_all}" />
@@ -55,11 +108,10 @@
             <div class="{swiper}-prev swiper-button-prev"></div>
             <div class="{swiper}-dots swiper-pagination"></div>
             <f:if condition="{flexFormData.autoplay} === '1' && {totalcount} > 1">
-                <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiper')}" class="btn btn-{swiper} play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
+                <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiper')}" class="btn play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
             </f:if>
         </div>
-        <f:render partial="JavaScript" arguments="{_all}" />
-        <f:render partial="JavaScriptTranslations" />
+        <f:render partial="JavaScriptTranslations" arguments="{_all}" />
     </f:if>
     <f:if condition="{lib.swiper.pagecss !== ''}">
         <f:asset.css identifier="swiperCSS" href="{f:cObject(typoscriptObjectPath: 'lib.swiper.pagecss')}" />
