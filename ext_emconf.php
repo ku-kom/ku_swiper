@@ -4,7 +4,7 @@
  * This file is part of the package ku_swiper.
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
- * May 202 Nanna Ellegaard.
+ * May 2023, Nanna Ellegaard.
  */
 
 $EM_CONF[$_EXTKEY] = [
