@@ -5,6 +5,10 @@
       "es6": true,
       "node": true
   },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+  },
   "rules": {
     "no-lonely-if": "off",
     "no-param-reassign": "off",
