@@ -4,7 +4,7 @@
  * This file is part of the package ku_swiper.
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
- * Sep 2022 Nanna Ellegaard, University of Copenhagen.
+ * May 2023 Nanna Ellegaard, University of Copenhagen.
  */
 
 defined('TYPO3') or die('Access denied.');
@@ -22,6 +22,3 @@ if ($typo3VersionNumber < 12000000) {
       @import "EXT:ku_swiper/Configuration/page.tsconfig"
    ');
 }
-
-// Viewhelper namespace
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['KuSwiper'] = ['UniversityOfCopenhagen\KuSwiper\ViewHelpers'];
