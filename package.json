@@ -31,7 +31,7 @@
 		"globcat": "^3.0.1",
 		"npm-run-all": "^4.1.5",
 		"onchange": "^7.1.0",
-        "terser": "^5.17.3"
+        "terser": "^5.17.4"
 		
     }
 }
