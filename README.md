@@ -15,7 +15,7 @@ TYPO3 v. 11.5, PHP 8.1
 
 ## Features
 * Play/pause buttons
-* Accessibility: No autoplay if user has enabled reduced motions in their OS.
+* Accessibility: No autoplay if user has enabled reduced motions in their OS/Platform.
 
 ## Settings
 * Auloplay
