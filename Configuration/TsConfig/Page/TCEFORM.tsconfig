@@ -1,53 +1,6 @@
 TCEFORM {
     tt_content {
         # cType ku_swiper:
-        header_layout {
-           types {
-                ku_swiper {
-                    disabled = 1
-                }
-            }
-        }
-
-        header {
-           types {
-                ku_swiper {
-                    disabled = 1
-                }
-            }
-        }
-
-        header_link {
-           types {
-                ku_swiper {
-                    disabled = 1
-                }
-            }
-        }
-
-        subheader {
-           types {
-                ku_swiper {
-                    disabled = 1
-                }
-            }
-        }
-
-        header_position {
-           types {
-                ku_swiper {
-                    disabled = 1
-                }
-            }
-        }
-
-        date {
-           types {
-                ku_swiper {
-                    disabled = 1
-                }
-            }
-        }
 
         background_image {
             types {
@@ -74,47 +27,6 @@ TCEFORM {
         }
 
         # cType ku_swiper_content:
-
-        header_layout {
-           types {
-                ku_swiper_content {
-                    disabled = 1
-                }
-            }
-        }
-
-        header {
-           types {
-                ku_swiper_content {
-                    disabled = 1
-                }
-            }
-        }
-
-        header_link {
-           types {
-                ku_swiper_content {
-                    disabled = 1
-                }
-            }
-        }
-
-        subheader {
-           types {
-                ku_swiper_content {
-                    disabled = 1
-                }
-            }
-        }
-
-        header_position {
-           types {
-                ku_swiper_content {
-                    disabled = 1
-                }
-            }
-        }
-
         date {
            types {
                 ku_swiper_content {

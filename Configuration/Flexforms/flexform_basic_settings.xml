@@ -61,44 +61,32 @@
                     </config>
                 </TCEforms>
             </slideSpeed>
-            <randomStart>
+            <startSlide>
                 <TCEforms>
-                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:randomStart
+                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:startSlide
                     </label>
                     <exclude>1</exclude>
-                    <config>
-                        <type>check</type>
-                        <renderType>checkboxLabeledToggle</renderType>
-                        <items type="array">
-                            <numIndex index="0" type="array">
-                                <numIndex index="0"></numIndex>
-                                <labelChecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</labelChecked>
-                                <labelUnchecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</labelUnchecked>
+                    <config type="array">
+                        <type>select</type>
+                        <renderType>selectSingle</renderType>
+                        <items>
+                            <numIndex index="0">
+                                <numIndex index="0">
+                                    LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:defaultStart
+                                </numIndex>
+                                <numIndex index="1">0</numIndex>
+                            </numIndex>
+                            <numIndex index="1">
+                                <numIndex index="0">
+                                    LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:randomStart
+                                </numIndex>
+                                <numIndex index="1">1</numIndex>
                             </numIndex>
                         </items>
                         <default>0</default>
                     </config>
                 </TCEforms>
-            </randomStart>
-            <reachedEnd>
-                <TCEforms>
-                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:reachedEnd
-                    </label>
-                    <exclude>1</exclude>
-                    <config>
-                        <type>check</type>
-                        <renderType>checkboxLabeledToggle</renderType>
-                        <items type="array">
-                            <numIndex index="0" type="array">
-                                <numIndex index="0"></numIndex>
-                                <labelChecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</labelChecked>
-                                <labelUnchecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</labelUnchecked>
-                            </numIndex>
-                        </items>
-                        <default>0</default>
-                    </config>
-                </TCEforms>
-            </reachedEnd>
+            </startSlide>
             <fade>
                 <TCEforms>
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:fade

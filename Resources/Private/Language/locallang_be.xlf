@@ -64,8 +64,14 @@
         <trans-unit id="fade">
             <source>Fade between slides</source>
         </trans-unit>
-         <trans-unit id="randomStart">
-            <source>Random start slide</source>
+         <trans-unit id="startSlide">
+            <source>start slide</source>
+        </trans-unit>
+        <trans-unit id="randomStart">
+            <source>Random slide</source>
+        </trans-unit>
+        <trans-unit id="defaultStart">
+            <source>From the beginning</source>
         </trans-unit>
         <trans-unit id="centeredSlides">
             <source>Center active slides</source>
@@ -81,12 +87,6 @@
         </trans-unit>
         <trans-unit id="slidespeed">
             <source>Slide transition speed (miliseconds)</source>
-        </trans-unit>
-        <trans-unit id="reachedEnd">
-            <source>Stop slideshow when end is reached</source>
-        </trans-unit>
-        <trans-unit id="lazyLoad">
-            <source>Lazy load images</source>
         </trans-unit>
         <trans-unit id="slidelink">
             <source>Slide link</source>

@@ -1,6 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:variable name="totalcount">{records -> f:count()}</f:variable>
-<f:if condition="{totalcount} > 1 && {flexFormData.lazyLoad} === '1'">
+<f:if condition="{totalcount} > 1">
     <f:variable name="lazy">lazy</f:variable>
 </f:if>
 <div class="swiper-slide">
@@ -21,7 +21,7 @@
             <f:then>
                 <div class="slide-media">
                     <f:image image="{record.files.0}" alt="" loading="{lazy}" />
-                    <f:if condition="{totalcount} > 1 && {flexFormData.lazyLoad} === '1'">
+                    <f:if condition="{totalcount} > 1">
                         <div class="swiper-lazy-preloader"></div>
                     </f:if>
                 </div>
