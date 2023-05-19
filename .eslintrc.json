@@ -7,7 +7,7 @@
   },
   "globals": {
     "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly",
+    "SharedArrayBuffer": "readonly"
   },
   "rules": {
     "no-lonely-if": "off",
