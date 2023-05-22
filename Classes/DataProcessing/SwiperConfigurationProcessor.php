@@ -38,8 +38,12 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
         $swiperConfiguration = new SwiperConfiguration();
         
         $flexFormData = $processedData['flexFormData'];
-
-        if (isset($flexFormData['slideSpeed'])) {
+        $number_of_slides = $processedData['data']['tx_ku_swiper_item'];
+        debug($processedData['data']);
+        //$processedData['data']["tx_ku_swiper_item"]
+        if (isset($flexFormData['initialSlide']) && $flexFormData['initialSlide'] === '1') {
+            
+        } else {
             $swiperConfiguration->slideSpeed = (int) $flexFormData['slideSpeed'];
         }
 

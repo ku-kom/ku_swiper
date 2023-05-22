@@ -37,7 +37,6 @@ class SwiperConfiguration implements \JsonSerializable
             'spaceBetween' => $this->spaceBetween,
             'autoplay' => $this->autoplay,
             'loop' => $this->loop,
-            'slideSpeed' => $this->slideSpeed,
             'initialSlide' => $this->initialSlide,
             'centeredSlides' => $this->centeredSlides,
             //'breakpoints' => array_map(BreakpointConfiguration $breakpoint => [json_encode($breakpoints)], $this->breakpoints)
