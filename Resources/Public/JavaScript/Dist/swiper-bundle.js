@@ -18,10 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (this.btn) {
                 this.icon = this.btn.querySelector('.bi');
             }
-
             // Declare custom Swiper settings from html data-* attributes
             this.id = this.swiper.dataset.id;
-            this.count = this.swiper.dataset.count;
             this.data = this.swiper.dataset.slides || {};
             if (this.data) {
                 this.dataOptions = JSON.parse(this.data);
@@ -59,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
              * Set to 0 to use default slide order.
              * @returns initial slide  
              */
-            return this.dataOptions.initialSlide === 1 ? Math.floor(Math.random() * (this.count - 0 + 1) + 0) : 0;
+            return this.dataOptions.initialSlide === 1 ? Math.floor(Math.random() * (this.swiper.slides.length - 0 + 1) + 0) : 0;
         }
 
         initSwiper() {

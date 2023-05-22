@@ -92,7 +92,7 @@
         </f:if>
         
         <div class="swiper-container {nav-sm} {nav-md} {nav-lg} {nav-xl} {pag-sm} {pag-md} {pag-lg} {pag-xl}">
-            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}" data-id="{swiper}" data-count="{totalcount}" data-slides='{swiperSettings}'>
+            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}" data-id="{swiper}" data-slides='{swiperSettings}'>
                 <div class="swiper-wrapper">
                     <f:for each="{records}" as="record">
                         <f:render partial="SlideItems" arguments="{_all}" />
