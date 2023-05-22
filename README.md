@@ -1,7 +1,7 @@
 # TYPO3 extension Swiper slider
 
 ### This is a TYPO3 extension of the Swiper slider
-Integrates [Swiper](https://swiperjs.com/  "Swiper") into TYPO3.
+Integrates [Swiper](https://swiperjs.com/  "Swiper") (currently v9.3.2) into TYPO3.
 
 Does not require jQuery.
 
