@@ -1,7 +1,6 @@
 TCEFORM {
     tt_content {
         # cType ku_swiper:
-
         background_image {
             types {
                 ku_swiper {
@@ -11,14 +10,6 @@ TCEFORM {
         }
 
         background_image_options {
-            types {
-                ku_swiper {
-                    disabled = 1
-                }
-            }
-        }
-
-        background_color_class {
             types {
                 ku_swiper {
                     disabled = 1
@@ -27,14 +18,6 @@ TCEFORM {
         }
 
         # cType ku_swiper_content:
-        date {
-           types {
-                ku_swiper_content {
-                    disabled = 1
-                }
-            }
-        }
-
         background_image {
             types {
                 ku_swiper_content {
@@ -44,14 +27,6 @@ TCEFORM {
         }
 
         background_image_options {
-            types {
-                ku_swiper_content {
-                    disabled = 1
-                }
-            }
-        }
-
-        background_color_class {
             types {
                 ku_swiper_content {
                     disabled = 1
