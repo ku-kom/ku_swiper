@@ -18,7 +18,8 @@ TYPO3 v. 11.5, PHP 8.1
 * Accessibility: No autoplay if user has enabled reduced motions in their OS/Platform.
 
 ## Settings
-* Auloplay
+### Many of Swiper options are available:
+* Autoplay
 * Infinite loop
 * Number of slides to display at the time in different viewports
 * Option to display slides partially
@@ -30,7 +31,7 @@ TYPO3 v. 11.5, PHP 8.1
 Use some of the many settings, or go with a basic slider.
 
 ## Known issues
-When using the content element "Create slides with records" and adding a custom order of records in the TCA field, there's a bug in TYPO3 v.11, which makes the records render by UUID in the frontend, rather than the order set by the user in the backend. [See the bug here](https://forge.typo3.org/issues/93760).
+When using the content element "Create slides with records" and adding a custom order of records in the TCA field, there's a bug in TYPO3 v.11, which makes the records render by UUID in the frontend, rather than the order set by the user in the backend. [See the bug described here](https://forge.typo3.org/issues/93760).
 
 ## Bugs and feature requests
 
