@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     prevEl: swiper.parentNode.querySelector('.swiper-button-prev'),
                 }
             };
+
             // Merge custom settings with default settings
             this.settings = Object.assign({}, this.dataOptions, this.defaultOptions);
 
@@ -61,7 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         initSwiper() {
-            // Check if Swiper plugin exist and init Swiper
+            /**
+             * Check if Swiper plugin exist and init Swiper
+             */
             if (typeof Swiper !== 'undefined') {
                 this.swiper = new Swiper(this.swiper, this.settings);
             }
