@@ -2,6 +2,9 @@
 <f:layout name="Default" />
 <f:section name="Main">
     <f:flashMessages />
+
+    <f:debug>{swiperConfiguration -> f:format.json()}</f:debug>
+
     <f:if condition="{records}">
         <f:variable name="swiper" value="swiper{data.uid -> f:format.raw()}" />
         <f:variable name="totalcount" value="{records -> f:count()}" />
