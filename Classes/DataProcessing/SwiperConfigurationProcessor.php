@@ -38,15 +38,22 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
         $swiperConfiguration = new SwiperConfiguration();
         
         $flexFormData = $processedData['flexFormData'];
-        $number_of_slides = $processedData['data']['tx_ku_swiper_item'];
-        debug($processedData['data']);
-        //$processedData['data']["tx_ku_swiper_item"]
-        if (isset($flexFormData['initialSlide']) && $flexFormData['initialSlide'] === '1') {
-            
-        } else {
-            $swiperConfiguration->slideSpeed = (int) $flexFormData['slideSpeed'];
+
+        // Number of inline slides or records
+        if (isset($processedData['data']['tx_ku_swiper_item'])) {
+            $number_of_slides = intval($processedData['data']['tx_ku_swiper_item']);
+        } else if(isset($processedData['data']['records'])) {
+            $number_of_slides = intval($processedData['data']['records']);
         }
 
+        // Start slide 0 is default order, 1 means random number out of all slides
+        // if (isset($flexFormData['initialSlide']) && $flexFormData['initialSlide'] === '1') {
+        //     $swiperConfiguration->initialSlide = (int) rand(1, $number_of_slides);
+        // } else {
+        //     $swiperConfiguration->initialSlide = (int) $flexFormData['initialSlide'];
+        // }
+
+        // Autoplay settings
         if (isset($flexFormData['autoplay']) && $flexFormData['autoplay'] === '1') {
             $autoplay_options = array(
                 "delay" => $flexFormData['slideSpeed'],
