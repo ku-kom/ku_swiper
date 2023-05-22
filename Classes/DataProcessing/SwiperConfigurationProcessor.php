@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace UniversityOfCopenhagen\KuSwiper\DataProcessing;
 
 use UniversityOfCopenhagen\KuSwiper\Service\SwiperConfiguration;
-use UniversityOfCopenhagen\KuSwiper\Service\BreakpointConfiguration;
+//use UniversityOfCopenhagen\KuSwiper\Service\BreakpointConfiguration;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
@@ -52,21 +52,20 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
         if (isset($flexFormData['centeredSlides'])) {
             $swiperConfiguration->centeredSlides = (int) $flexFormData['centeredSlides'];
         }
+        // if (isset($flexFormData['slidesToShow-smartphone']) && isset($flexFormData['slidesToScroll-smartphone'])) {
+        //     $swiperConfiguration->breakpoints[Breakpoint::MOBILE] = new BreakpointConfiguration(slidesPerView: (int) $flexFormData['slidesToShow-smartphone'], slidesPerGroup: (int) $flexFormData['slidesToScroll-smartphone']);
+        // }
 
-        if (isset($flexFormData['slidesToShow-smartphone']) && isset($flexFormData['slidesToScroll-smartphone'])) {
-            $swiperConfiguration->breakpoints[Breakpoint::MOBILE] = new BreakpointConfiguration(slidesPerView: (int) $flexFormData['slidesToShow-smartphone'], slidesPerGroup: (int) $flexFormData['slidesToScroll-smartphone']);
-        }
+        // if (isset($flexFormData['slidesToShow-tablet']) && isset($flexFormData['slidesToScroll-tablet'])) {
+        //     $swiperConfiguration->breakpoints[Breakpoint::TABLET] = new BreakpointConfiguration(slidesPerView: (int) $flexFormData['slidesToShow-tablet'], slidesPerGroup: (int) $flexFormData['slidesToScroll-tablet']);
+        // }
 
-        if (isset($flexFormData['slidesToShow-tablet']) && isset($flexFormData['slidesToScroll-tablet'])) {
-            $swiperConfiguration->breakpoints[Breakpoint::TABLET] = new BreakpointConfiguration(slidesPerView: (int) $flexFormData['slidesToShow-tablet'], slidesPerGroup: (int) $flexFormData['slidesToScroll-tablet']);
-        }
-
-        if (isset($flexFormData['slidesToShow-desktop']) && isset($flexFormData['slidesToScroll-desktop'])) {
-            $swiperConfiguration->breakpoints[Breakpoint::DESKTOP] = new BreakpointConfiguration(slidesPerView: (int) $flexFormData['slidesToShow-desktop'], slidesPerGroup: (int) $flexFormData['slidesToScroll-desktop']);
-        }
-        if (isset($flexFormData['slidesToShow-widescreen']) && isset($flexFormData['slidesToScroll-widescreen'])) {
-            $swiperConfiguration->breakpoints[Breakpoint::WIDESCREEN] = new BreakpointConfiguration(slidesPerView: (int) $flexFormData['slidesToShow-widescreen'], slidesPerGroup: (int) $flexFormData['slidesToScroll-widescreen']);
-        }
+        // if (isset($flexFormData['slidesToShow-desktop']) && isset($flexFormData['slidesToScroll-desktop'])) {
+        //     $swiperConfiguration->breakpoints[Breakpoint::DESKTOP] = new BreakpointConfiguration(slidesPerView: (int) $flexFormData['slidesToShow-desktop'], slidesPerGroup: (int) $flexFormData['slidesToScroll-desktop']);
+        // }
+        // if (isset($flexFormData['slidesToShow-widescreen']) && isset($flexFormData['slidesToScroll-widescreen'])) {
+        //     $swiperConfiguration->breakpoints[Breakpoint::WIDESCREEN] = new BreakpointConfiguration(slidesPerView: (int) $flexFormData['slidesToShow-widescreen'], slidesPerGroup: (int) $flexFormData['slidesToScroll-widescreen']);
+        // }
 
         $processedData['swiperConfiguration'] = $swiperConfiguration;
         return $processedData;

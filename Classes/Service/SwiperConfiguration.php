@@ -23,12 +23,12 @@ class SwiperConfiguration implements \JsonSerializable
     public int $initialSlide = 0;
     public int $centeredSlides = 0;
     // breakpoints
-    public array $breakpoints = [
-        Breakpoint::MOBILE => '576',
-        Breakpoint::TABLET => '768',
-        Breakpoint::DESKTOP => '992',
-        Breakpoint::WIDESCREEN => '1200'
-    ];
+    // public array $breakpoints = [
+    //     Breakpoint::MOBILE => '576',
+    //     Breakpoint::TABLET => '768',
+    //     Breakpoint::DESKTOP => '992',
+    //     Breakpoint::WIDESCREEN => '1200'
+    // ];
     
     public function jsonSerialize(): array
     {
@@ -40,7 +40,7 @@ class SwiperConfiguration implements \JsonSerializable
             'slideSpeed' => $this->slideSpeed,
             'initialSlide' => $this->initialSlide,
             'centeredSlides' => $this->centeredSlides,
-            'breakpoints' => array_map(BreakpointConfiguration $breakpoint => [json_encode($breakpoints)], $this->breakpoints)
+            //'breakpoints' => array_map(BreakpointConfiguration $breakpoint => [json_encode($breakpoints)], $this->breakpoints)
         ];
     }
 
