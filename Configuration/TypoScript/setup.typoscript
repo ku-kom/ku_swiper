@@ -11,6 +11,7 @@ lib.swiper.pagecss = TEXT
 lib.swiper.pagecss {
     if.isTrue = {$swiper.assets.extraCss}
     value = {$swiper.assets.extraCss}
+    htmlSanitize = 1
 }
 
 ##########################
@@ -20,4 +21,5 @@ lib.swiper.pagejs = TEXT
 lib.swiper.pagejs {
     if.isTrue = {$swiper.assets.extraJs}
     value = {$swiper.assets.extraJs}
+    htmlSanitize = 1
 }
