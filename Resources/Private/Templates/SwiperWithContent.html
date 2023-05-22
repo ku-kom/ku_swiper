@@ -8,7 +8,8 @@
             <f:cObject typoscriptObjectPath="lib.tx_ku_swiper_pages" data="{data}" />
         </f:if>
     </f:comment>
-    <f:variable name="swiper" value="swiper{data.uid -> f:format.raw()}" />
+    <f:if condition="{records}">
+        <f:variable name="swiper" value="swiper{data.uid -> f:format.raw()}" />
         <f:variable name="totalcount" value="{records -> f:count()}" />
         <f:comment>
             <!--
