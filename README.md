@@ -9,9 +9,9 @@ Does not require jQuery.
 TYPO3 v. 11.5, PHP 8.1
 
 ## Contents
-### Two content elements:
-* Create slides items with image and/or text
-* Create slides with records
+### Two TYPO3 content elements:
+* Create slides as items with image and/or text
+* Create slides with existing content records
 
 ## Features
 * Play/pause buttons
