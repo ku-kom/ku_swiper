@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 loopPreventsSliding: false,
                 spaceBetween: 20,
                 initialSlide: this.getRandomSlide(),
+                keyboard: true,
                 pagination: {
                     el: swiper.parentNode.querySelector('.swiper-pagination'),
                     clickable: true
