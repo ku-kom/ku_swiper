@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });/**
- * Swiper 9.2.4
+ * Swiper 9.3.2
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
  *
  * Released under the MIT License
  *
- * Released on: April 24, 2023
+ * Released on: May 22, 2023
  */
 
 (function (global, factory) {
@@ -461,6 +461,20 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.add(...(Array.isArray(classes) ? classes : [classes]));
       return el;
     }
+    function elementOffset(el) {
+      const window = getWindow();
+      const document = getDocument();
+      const box = el.getBoundingClientRect();
+      const body = document.body;
+      const clientTop = el.clientTop || body.clientTop || 0;
+      const clientLeft = el.clientLeft || body.clientLeft || 0;
+      const scrollTop = el === window ? window.scrollY : el.scrollTop;
+      const scrollLeft = el === window ? window.scrollX : el.scrollLeft;
+      return {
+        top: box.top + scrollTop - clientTop,
+        left: box.left + scrollLeft - clientLeft
+      };
+    }
     function elementPrevAll(el, selector) {
       const prevEls = [];
       while (el.previousElementSibling) {
@@ -536,7 +550,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const window = getWindow();
       const document = getDocument();
       return {
-        smoothScroll: document.documentElement && 'scrollBehavior' in document.documentElement.style,
+        smoothScroll: document.documentElement && document.documentElement.style && 'scrollBehavior' in document.documentElement.style,
         touch: !!('ontouchstart' in window || window.DocumentTouch && document instanceof window.DocumentTouch)
       };
     }
@@ -960,6 +974,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (typeof spaceBetween === 'string' && spaceBetween.indexOf('%') >= 0) {
         spaceBetween = parseFloat(spaceBetween.replace('%', '')) / 100 * swiperSize;
+      } else if (typeof spaceBetween === 'string') {
+        spaceBetween = parseFloat(spaceBetween);
       }
       swiper.virtualSize = -spaceBetween;
 
@@ -1069,10 +1085,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       swiper.virtualSize = Math.max(swiper.virtualSize, swiperSize) + offsetAfter;
       if (rtl && wrongRTL && (params.effect === 'slide' || params.effect === 'coverflow')) {
-        wrapperEl.style.width = `${swiper.virtualSize + params.spaceBetween}px`;
+        wrapperEl.style.width = `${swiper.virtualSize + spaceBetween}px`;
       }
       if (params.setWrapperSize) {
-        wrapperEl.style[getDirectionLabel('width')] = `${swiper.virtualSize + params.spaceBetween}px`;
+        wrapperEl.style[getDirectionLabel('width')] = `${swiper.virtualSize + spaceBetween}px`;
       }
       if (gridEnabled) {
         swiper.grid.updateWrapperSize(slideSize, snapGrid, getDirectionLabel);
@@ -1111,7 +1127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
       if (snapGrid.length === 0) snapGrid = [0];
-      if (params.spaceBetween !== 0) {
+      if (spaceBetween !== 0) {
         const key = swiper.isHorizontal() && rtl ? 'marginLeft' : getDirectionLabel('marginRight');
         slides.filter((_, slideIndex) => {
           if (!params.cssMode || params.loop) return true;
@@ -1126,9 +1142,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (params.centeredSlides && params.centeredSlidesBounds) {
         let allSlidesSize = 0;
         slidesSizesGrid.forEach(slideSizeValue => {
-          allSlidesSize += slideSizeValue + (params.spaceBetween ? params.spaceBetween : 0);
+          allSlidesSize += slideSizeValue + (spaceBetween || 0);
         });
-        allSlidesSize -= params.spaceBetween;
+        allSlidesSize -= spaceBetween;
         const maxSnap = allSlidesSize - swiperSize;
         snapGrid = snapGrid.map(snap => {
           if (snap < 0) return -offsetBefore;
@@ -1139,9 +1155,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (params.centerInsufficientSlides) {
         let allSlidesSize = 0;
         slidesSizesGrid.forEach(slideSizeValue => {
-          allSlidesSize += slideSizeValue + (params.spaceBetween ? params.spaceBetween : 0);
+          allSlidesSize += slideSizeValue + (spaceBetween || 0);
         });
-        allSlidesSize -= params.spaceBetween;
+        allSlidesSize -= spaceBetween;
         if (allSlidesSize < swiperSize) {
           const allSlidesOffset = (swiperSize - allSlidesSize) / 2;
           snapGrid.forEach((snap, snapIndex) => {
@@ -1268,14 +1284,20 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       swiper.visibleSlidesIndexes = [];
       swiper.visibleSlides = [];
+      let spaceBetween = params.spaceBetween;
+      if (typeof spaceBetween === 'string' && spaceBetween.indexOf('%') >= 0) {
+        spaceBetween = parseFloat(spaceBetween.replace('%', '')) / 100 * swiper.size;
+      } else if (typeof spaceBetween === 'string') {
+        spaceBetween = parseFloat(spaceBetween);
+      }
       for (let i = 0; i < slides.length; i += 1) {
         const slide = slides[i];
         let slideOffset = slide.swiperSlideOffset;
         if (params.cssMode && params.centeredSlides) {
           slideOffset -= slides[0].swiperSlideOffset;
         }
-        const slideProgress = (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0) - slideOffset) / (slide.swiperSlideSize + params.spaceBetween);
-        const originalSlideProgress = (offsetCenter - snapGrid[0] + (params.centeredSlides ? swiper.minTranslate() : 0) - slideOffset) / (slide.swiperSlideSize + params.spaceBetween);
+        const slideProgress = (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0) - slideOffset) / (slide.swiperSlideSize + spaceBetween);
+        const originalSlideProgress = (offsetCenter - snapGrid[0] + (params.centeredSlides ? swiper.minTranslate() : 0) - slideOffset) / (slide.swiperSlideSize + spaceBetween);
         const slideBefore = -(offsetCenter - slideOffset);
         const slideAfter = slideBefore + swiper.slidesSizesGrid[i];
         const isVisible = slideBefore >= 0 && slideBefore < swiper.size - 1 || slideAfter > 1 && slideAfter <= swiper.size || slideBefore <= 0 && slideAfter >= swiper.size;
@@ -2291,12 +2313,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (isPrev) {
         prependSlidesIndexes.forEach(index => {
+          swiper.slides[index].swiperLoopMoveDOM = true;
           slidesEl.prepend(swiper.slides[index]);
+          swiper.slides[index].swiperLoopMoveDOM = false;
         });
       }
       if (isNext) {
         appendSlidesIndexes.forEach(index => {
+          swiper.slides[index].swiperLoopMoveDOM = true;
           slidesEl.append(swiper.slides[index]);
+          swiper.slides[index].swiperLoopMoveDOM = false;
         });
       }
       swiper.recalcSlides();
@@ -3033,6 +3059,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function onLoad(e) {
       const swiper = this;
       processLazyPreloader(swiper, e.target);
+      if (swiper.params.cssMode || swiper.params.slidesPerView !== 'auto' && !swiper.params.autoHeight) {
+        return;
+      }
       swiper.update();
     }
 
@@ -4082,6 +4111,119 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     Swiper.use([Resize, Observer]);
 
+    /* eslint-disable consistent-return */
+    function Keyboard(_ref) {
+      let {
+        swiper,
+        extendParams,
+        on,
+        emit
+      } = _ref;
+      const document = getDocument();
+      const window = getWindow();
+      swiper.keyboard = {
+        enabled: false
+      };
+      extendParams({
+        keyboard: {
+          enabled: false,
+          onlyInViewport: true,
+          pageUpDown: true
+        }
+      });
+      function handle(event) {
+        if (!swiper.enabled) return;
+        const {
+          rtlTranslate: rtl
+        } = swiper;
+        let e = event;
+        if (e.originalEvent) e = e.originalEvent; // jquery fix
+        const kc = e.keyCode || e.charCode;
+        const pageUpDown = swiper.params.keyboard.pageUpDown;
+        const isPageUp = pageUpDown && kc === 33;
+        const isPageDown = pageUpDown && kc === 34;
+        const isArrowLeft = kc === 37;
+        const isArrowRight = kc === 39;
+        const isArrowUp = kc === 38;
+        const isArrowDown = kc === 40;
+        // Directions locks
+        if (!swiper.allowSlideNext && (swiper.isHorizontal() && isArrowRight || swiper.isVertical() && isArrowDown || isPageDown)) {
+          return false;
+        }
+        if (!swiper.allowSlidePrev && (swiper.isHorizontal() && isArrowLeft || swiper.isVertical() && isArrowUp || isPageUp)) {
+          return false;
+        }
+        if (e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
+          return undefined;
+        }
+        if (document.activeElement && document.activeElement.nodeName && (document.activeElement.nodeName.toLowerCase() === 'input' || document.activeElement.nodeName.toLowerCase() === 'textarea')) {
+          return undefined;
+        }
+        if (swiper.params.keyboard.onlyInViewport && (isPageUp || isPageDown || isArrowLeft || isArrowRight || isArrowUp || isArrowDown)) {
+          let inView = false;
+          // Check that swiper should be inside of visible area of window
+          if (elementParents(swiper.el, `.${swiper.params.slideClass}, swiper-slide`).length > 0 && elementParents(swiper.el, `.${swiper.params.slideActiveClass}`).length === 0) {
+            return undefined;
+          }
+          const el = swiper.el;
+          const swiperWidth = el.clientWidth;
+          const swiperHeight = el.clientHeight;
+          const windowWidth = window.innerWidth;
+          const windowHeight = window.innerHeight;
+          const swiperOffset = elementOffset(el);
+          if (rtl) swiperOffset.left -= el.scrollLeft;
+          const swiperCoord = [[swiperOffset.left, swiperOffset.top], [swiperOffset.left + swiperWidth, swiperOffset.top], [swiperOffset.left, swiperOffset.top + swiperHeight], [swiperOffset.left + swiperWidth, swiperOffset.top + swiperHeight]];
+          for (let i = 0; i < swiperCoord.length; i += 1) {
+            const point = swiperCoord[i];
+            if (point[0] >= 0 && point[0] <= windowWidth && point[1] >= 0 && point[1] <= windowHeight) {
+              if (point[0] === 0 && point[1] === 0) continue; // eslint-disable-line
+              inView = true;
+            }
+          }
+          if (!inView) return undefined;
+        }
+        if (swiper.isHorizontal()) {
+          if (isPageUp || isPageDown || isArrowLeft || isArrowRight) {
+            if (e.preventDefault) e.preventDefault();else e.returnValue = false;
+          }
+          if ((isPageDown || isArrowRight) && !rtl || (isPageUp || isArrowLeft) && rtl) swiper.slideNext();
+          if ((isPageUp || isArrowLeft) && !rtl || (isPageDown || isArrowRight) && rtl) swiper.slidePrev();
+        } else {
+          if (isPageUp || isPageDown || isArrowUp || isArrowDown) {
+            if (e.preventDefault) e.preventDefault();else e.returnValue = false;
+          }
+          if (isPageDown || isArrowDown) swiper.slideNext();
+          if (isPageUp || isArrowUp) swiper.slidePrev();
+        }
+        emit('keyPress', kc);
+        return undefined;
+      }
+      function enable() {
+        if (swiper.keyboard.enabled) return;
+        document.addEventListener('keydown', handle);
+        swiper.keyboard.enabled = true;
+      }
+      function disable() {
+        if (!swiper.keyboard.enabled) return;
+        document.removeEventListener('keydown', handle);
+        swiper.keyboard.enabled = false;
+      }
+      on('init', () => {
+        if (swiper.params.keyboard.enabled) {
+          enable();
+        }
+      });
+      on('destroy', () => {
+        if (swiper.keyboard.enabled) {
+          disable();
+        }
+      });
+      Object.assign(swiper.keyboard, {
+        enable,
+        disable
+      });
+    }
+
     function createElementIfNotDefined(swiper, originalParams, params, checkProps) {
       if (swiper.params.createElements) {
         Object.keys(checkProps).forEach(key => {
@@ -4979,7 +5121,11 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       const init = () => {
         const params = swiper.params.a11y;
-        swiper.el.append(liveRegion);
+        if (swiper.isElement) {
+          swiper.el.shadowEl.append(liveRegion);
+        } else {
+          swiper.el.append(liveRegion);
+        }
 
         // Container
         const containerEl = swiper.el;
@@ -5028,7 +5174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         swiper.el.addEventListener('pointerup', handlePointerUp, true);
       };
       function destroy() {
-        if (liveRegion && liveRegion.length > 0) liveRegion.remove();
+        if (liveRegion) liveRegion.remove();
         let {
           nextEl,
           prevEl
@@ -5059,9 +5205,6 @@ document.addEventListener('DOMContentLoaded', () => {
         liveRegion = createElement('span', swiper.params.a11y.notificationClass);
         liveRegion.setAttribute('aria-live', 'assertive');
         liveRegion.setAttribute('aria-atomic', 'true');
-        if (swiper.isElement) {
-          liveRegion.setAttribute('slot', 'container-end');
-        }
       });
       on('afterInit', () => {
         if (!swiper.params.a11y.enabled) return;
@@ -5536,7 +5679,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Swiper Class
-    const modules = [Navigation, Pagination, A11y, Autoplay, EffectFade];
+    const modules = [Keyboard, Navigation, Pagination, A11y, Autoplay, EffectFade];
     Swiper.use(modules);
 
     return Swiper;
