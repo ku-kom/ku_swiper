@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 loopPreventsSliding: false,
                 spaceBetween: 20,
                 initialSlide: this.getRandomSlide(),
+                a11y: true,
                 pagination: {
                     el: swiper.parentNode.querySelector('.swiper-pagination'),
                     clickable: true
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     prevEl: swiper.parentNode.querySelector('.swiper-button-prev'),
                 }
             };
-            // Merge default settings with custom settings
+            // Merge custom settings with default settings
             this.settings = Object.assign({}, this.dataOptions, this.defaultOptions);
 
             this.initSwiper();
