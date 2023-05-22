@@ -65,7 +65,7 @@
             <source>Fade between slides</source>
         </trans-unit>
          <trans-unit id="startSlide">
-            <source>start slide</source>
+            <source>Start slide</source>
         </trans-unit>
         <trans-unit id="randomStart">
             <source>Random slide</source>
