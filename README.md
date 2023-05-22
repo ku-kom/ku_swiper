@@ -30,7 +30,11 @@ TYPO3 v. 11.5, PHP 8.1
 Use some of the many settings, or go with a basic slider.
 
 ## Known issues
-When using the content element "Create slides with records" and adding a custom order of records in the TCA field, there's a bug in TYPO3 v.11, which makes the records render by UUID in the frontend, rather than the order set by the user in the backend. [See the bug here](https://forge.typo3.org/issues/93760  "TYPO3 forge").
+When using the content element "Create slides with records" and adding a custom order of records in the TCA field, there's a bug in TYPO3 v.11, which makes the records render by UUID in the frontend, rather than the order set by the user in the backend. [See the bug here](https://forge.typo3.org/issues/93760).
+
+## Bugs and feature requests
+
+Have a bug or a feature request? If your problem or idea is not addressed yet, [please open a new issue](https://github.com/ku-kom/ku_swiper/issues).
 
 ## License
-This project is released under the terms of the [MIT license](https://en.wikipedia.org/wiki/MIT_License  "MIT license").
+This project is released under the terms of the [MIT license](https://en.wikipedia.org/wiki/MIT_License).
