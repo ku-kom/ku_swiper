@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
-* Process breakpoints in Swiper configuration
+* Process slide effect in Swiper configuration
 **/
 
 namespace UniversityOfCopenhagen\KuSwiper\Effect;

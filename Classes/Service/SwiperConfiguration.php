@@ -35,9 +35,7 @@ class SwiperConfiguration implements \JsonSerializable
             'slidesPerView' => $this->slidesPerView,
             'slidesPerGroup' => $this->slidesPerGroup,
             'effect' => $this->effect,
-            'breakpoints' => array_map(fn(BreakpointConfiguration $breakpoint) => json_encode($breakpoint), $this->breakpoints)
+            'breakpoints' => array_map(fn (BreakpointConfiguration $breakpoint) => json_encode($breakpoint), $this->breakpoints)
         ];
     }
-
-    
 }
