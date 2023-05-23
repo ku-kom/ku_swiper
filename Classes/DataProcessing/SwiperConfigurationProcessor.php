@@ -54,23 +54,22 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
 
         // Autoplay
         if (isset($flexFormData['autoplay']) && $number_of_slides > 1 && $flexFormData['autoplay'] === '1') {
-            $autoplay_options = array(
-                "delay" => $flexFormData['slideSpeed'],
+            $swiperConfiguration->autoplay = array(
+                "delay" => intval($flexFormData['slideSpeed']),
                 "disableOnInteraction" => false,
             );
-            $swiperConfiguration->autoplay = json_encode($autoplay_options);
         } else {
             $swiperConfiguration->autoplay = (int) $flexFormData['autoplay'];
         }
 
         // Loop
         if (isset($flexFormData['loop']) && $number_of_slides > 2 && $flexFormData['loop'] === '1') {
-            $swiperConfiguration->loop = (int) $flexFormData['loop'];
+            $swiperConfiguration->loop = true;
         }
 
         // Fade
-        $swiperConfiguration->effect = SlideEffect::create();
-        if (isset($flexFormData['fade']) && $number_of_slides > 2 && $flexFormData['fade'] === '1') {
+        // $swiperConfiguration->effect = SlideEffect::create();
+        if (isset($flexFormData['fade']) && $number_of_slides > 1 && $flexFormData['fade'] === '1') {
             $swiperConfiguration->effect = FadeEffect::create(['crossFade' => true]);
         }
 
@@ -88,7 +87,8 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
         if (isset($flexFormData['slidesToScroll-smartphone'])) {
             $swiperConfiguration->slidesPerGroup = (int) $flexFormData['slidesToScroll-smartphone'];
         }
-      
+        
+        // Breakpoint settings
         if (isset($flexFormData['slidesToShow-smartphone']) && isset($flexFormData['slidesToScroll-smartphone'])) {
             $swiperConfiguration->breakpoints[Breakpoint::MOBILE->size()] = new BreakpointConfiguration(slidesPerView: (float) $flexFormData['slidesToShow-smartphone'], slidesPerGroup: (float) $flexFormData['slidesToScroll-smartphone']);
         }

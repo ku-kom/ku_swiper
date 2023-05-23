@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
-* Process fade effect in Swiper configuration
+* Process fade in Swiper configuration
 **/
 
 namespace UniversityOfCopenhagen\KuSwiper\Effect;

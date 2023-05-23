@@ -14,9 +14,8 @@ use UniversityOfCopenhagen\KuSwiper\Service\BreakpointConfiguration;
 
 class SwiperConfiguration implements \JsonSerializable
 {
-    // Costumizable
     public mixed $autoplay;
-    public int $loop = 0;
+    public bool $loop = false;
     public int $slideSpeed = 4000;
     public int $startSlide = 0;
     public int $centeredSlides = 0;
@@ -35,7 +34,7 @@ class SwiperConfiguration implements \JsonSerializable
             'slidesPerView' => $this->slidesPerView,
             'slidesPerGroup' => $this->slidesPerGroup,
             'effect' => $this->effect,
-            'breakpoints' => array_map(fn (BreakpointConfiguration $breakpoint) => json_encode($breakpoint), $this->breakpoints)
+            'breakpoints' => array_map(fn (BreakpointConfiguration $breakpoint) => $breakpoint, $this->breakpoints)
         ];
     }
 }
