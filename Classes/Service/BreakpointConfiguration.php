@@ -8,24 +8,25 @@ declare(strict_types=1);
 
 namespace UniversityOfCopenhagen\KuSwiper\Service;
 
-enum Breakpoint {
-    case MOBILE;
-    case TABLET;
-    case DESKTOP;
-    case WIDESCREEN;
-}  
-
 class BreakpointConfiguration implements \JsonSerializable
 {
-    public Breakpoint $breakpoint;
-    public int $slidesPerView = 1;
-    public int $slidesPerGroup = 1;
+    public function __construct(
+        public float $slidesPerView = 1,
+        public float $slidesPerGroup = 1
+        // public bool $showArrows = false,
+        // public bool $showADots = false
+    ) {
+
+    }
+    
     
     public function jsonSerialize(): array
     {
         return [
           'slidesPerView' => $this->slidesPerView,
           'slidesPerGroup' => $this->slidesPerGroup
+        //   'showArrows' => $this->showArrows,
+        //   'showADots' => $this->showADots
         ];
     }
 }

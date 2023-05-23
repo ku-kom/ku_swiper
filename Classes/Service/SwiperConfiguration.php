@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace UniversityOfCopenhagen\KuSwiper\Service;
 
+use UniversityOfCopenhagen\KuSwiper\Effect\EffectInterface;
 use UniversityOfCopenhagen\KuSwiper\Service\BreakpointConfiguration;
 
 class SwiperConfiguration implements \JsonSerializable
@@ -21,14 +22,8 @@ class SwiperConfiguration implements \JsonSerializable
     public int $centeredSlides = 0;
     public int $slidesPerView = 1;
     public int $slidesPerGroup = 1;
-    public mixed $effect = 'slide';
-    // breakpoints
-    // public array $breakpoints = [
-    //     Breakpoint::MOBILE => '576',
-    //     Breakpoint::TABLET => '768',
-    //     Breakpoint::DESKTOP => '992',
-    //     Breakpoint::WIDESCREEN => '1200'
-    // ];
+    public EffectInterface $effect;
+    public array $breakpoints = [];
     
     public function jsonSerialize(): array
     {
@@ -40,7 +35,7 @@ class SwiperConfiguration implements \JsonSerializable
             'slidesPerView' => $this->slidesPerView,
             'slidesPerGroup' => $this->slidesPerGroup,
             'effect' => $this->effect,
-            //'breakpoints' => array_map(BreakpointConfiguration $breakpoint => [json_encode($breakpoints)], $this->breakpoints)
+            'breakpoints' => array_map(fn(BreakpointConfiguration $breakpoint) => json_encode($breakpoint), $this->breakpoints)
         ];
     }
 
