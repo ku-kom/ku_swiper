@@ -42,19 +42,17 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
         // Number of inline slides or records
         if (isset($processedData['data']['tx_ku_swiper_item'])) {
             $number_of_slides = intval($processedData['data']['tx_ku_swiper_item']);
-        } else if(isset($processedData['data']['records'])) {
+        } elseif(isset($processedData['data']['records'])) {
             $number_of_slides = intval($processedData['data']['records']);
         }
 
         // Start slide 0 is default order, 1 means random number out of all slides
-        // if (isset($flexFormData['initialSlide']) && $flexFormData['initialSlide'] === '1') {
-        //     $swiperConfiguration->initialSlide = (int) rand(1, $number_of_slides);
-        // } else {
-        //     $swiperConfiguration->initialSlide = (int) $flexFormData['initialSlide'];
-        // }
+        if (isset($flexFormData['startSlide']) && $flexFormData['startSlide'] === '1') {
+            $swiperConfiguration->startSlide = (int) rand(1, $number_of_slides);
+        }
 
-        // Autoplay settings
-        if (isset($flexFormData['autoplay']) && $flexFormData['autoplay'] === '1') {
+        // Autoplay
+        if (isset($flexFormData['autoplay']) && $number_of_slides > 1 && $flexFormData['autoplay'] === '1') {
             $autoplay_options = array(
                 "delay" => $flexFormData['slideSpeed'],
                 "disableOnInteraction" => false,
@@ -64,12 +62,32 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
             $swiperConfiguration->autoplay = (int) $flexFormData['autoplay'];
         }
 
-        if (isset($flexFormData['loop'])) {
+        // Loop
+        if (isset($flexFormData['loop']) && $number_of_slides > 1 && $flexFormData['loop'] === '1') {
             $swiperConfiguration->loop = (int) $flexFormData['loop'];
         }
 
+        // Fade
+        if (isset($flexFormData['fade']) && $number_of_slides > 1 && $flexFormData['fade'] === '1') {
+            $autoplay_options = array(
+                "crossFade" => true,
+            );
+            $swiperConfiguration->effect = json_encode(array('fadeEffect' => $autoplay_options));
+        }
+
+        // Centered slides
         if (isset($flexFormData['centeredSlides'])) {
             $swiperConfiguration->centeredSlides = (int) $flexFormData['centeredSlides'];
+        }
+
+        // Slides to show at the time
+        if (isset($flexFormData['slidesToShow-smartphone'])) {
+            $swiperConfiguration->slidesPerView = (int) $flexFormData['slidesToShow-smartphone'];
+        }
+
+        // Slides to swipe
+        if (isset($flexFormData['slidesToScroll-smartphone'])) {
+            $swiperConfiguration->slidesPerGroup = (int) $flexFormData['slidesToScroll-smartphone'];
         }
       
         // if (isset($flexFormData['slidesToShow-smartphone']) && isset($flexFormData['slidesToScroll-smartphone'])) {

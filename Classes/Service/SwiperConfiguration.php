@@ -13,15 +13,15 @@ use UniversityOfCopenhagen\KuSwiper\Service\BreakpointConfiguration;
 
 class SwiperConfiguration implements \JsonSerializable
 {
-    // Default
-    public int $loopPreventsSliding = 0;
-    public int $spaceBetween = 20;
     // Costumizable
     public mixed $autoplay;
     public int $loop = 0;
     public int $slideSpeed = 4000;
-    public int $initialSlide = 0;
+    public int $startSlide = 0;
     public int $centeredSlides = 0;
+    public int $slidesPerView = 1;
+    public int $slidesPerGroup = 1;
+    public mixed $effect = 'slide';
     // breakpoints
     // public array $breakpoints = [
     //     Breakpoint::MOBILE => '576',
@@ -33,12 +33,13 @@ class SwiperConfiguration implements \JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'loopPreventsSliding' => $this->loopPreventsSliding,
-            'spaceBetween' => $this->spaceBetween,
             'autoplay' => $this->autoplay,
             'loop' => $this->loop,
-            'initialSlide' => $this->initialSlide,
+            'startSlide' => $this->startSlide,
             'centeredSlides' => $this->centeredSlides,
+            'slidesPerView' => $this->slidesPerView,
+            'slidesPerGroup' => $this->slidesPerGroup,
+            'effect' => $this->effect,
             //'breakpoints' => array_map(BreakpointConfiguration $breakpoint => [json_encode($breakpoints)], $this->breakpoints)
         ];
     }
