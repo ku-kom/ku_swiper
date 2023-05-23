@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     class SwiperState {
         constructor(swiper) {
             this.swiper = swiper;
+            this.children = this.swiper.querySelectorAll('.swiper-slide').length;
             this.btn = swiper.parentNode.querySelector('.btn');
             if (this.btn) {
                 this.icon = this.btn.querySelector('.bi');
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
              * Set to 0 to use default slide order.
              * @returns initial slide  
              */
-            return this.dataOptions.initialSlide === 1 ? Math.floor(Math.random() * (this.swiper.slides.length - 0 + 1) + 0) : 0;
+            return this.dataOptions.initialSlide === 1 ? Math.floor(Math.random() * (this.children- 0 + 1) + 0) : 0;
         }
 
         initSwiper() {
