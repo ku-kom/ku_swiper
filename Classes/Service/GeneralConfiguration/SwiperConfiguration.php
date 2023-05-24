@@ -7,7 +7,7 @@ declare(strict_types=1);
 * Use in fluid like this: {swiperConfiguration -> f:format.json()}
 **/
 
-namespace UniversityOfCopenhagen\KuSwiper\Service\SwiperConfiguration;
+namespace UniversityOfCopenhagen\KuSwiper\Service\GeneralConfiguration;
 
 use UniversityOfCopenhagen\KuSwiper\Service\Effect\EffectInterface;
 use UniversityOfCopenhagen\KuSwiper\Service\Breakpoints\BreakpointConfiguration;

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace UniversityOfCopenhagen\KuSwiper\DataProcessing;
 
-use UniversityOfCopenhagen\KuSwiper\Service\SwiperConfiguration\SwiperConfiguration;
+use UniversityOfCopenhagen\KuSwiper\Service\GeneralConfiguration\SwiperConfiguration;
 use UniversityOfCopenhagen\KuSwiper\Service\Breakpoints\BreakpointConfiguration;
 use UniversityOfCopenhagen\KuSwiper\Service\Breakpoints\Breakpoint;
 use UniversityOfCopenhagen\KuSwiper\Service\Effect\SlideEffect;
