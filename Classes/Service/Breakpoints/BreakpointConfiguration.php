@@ -6,7 +6,7 @@ declare(strict_types=1);
 * Process breakpoints in Swiper configuration
 **/
 
-namespace UniversityOfCopenhagen\KuSwiper\Service;
+namespace UniversityOfCopenhagen\KuSwiper\Service\Breakpoints;
 
 class BreakpointConfiguration implements \JsonSerializable
 {

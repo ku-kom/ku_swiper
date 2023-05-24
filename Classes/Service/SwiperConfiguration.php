@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace UniversityOfCopenhagen\KuSwiper\Service;
 
 use UniversityOfCopenhagen\KuSwiper\Effect\EffectInterface;
-use UniversityOfCopenhagen\KuSwiper\Service\BreakpointConfiguration;
+use UniversityOfCopenhagen\KuSwiper\Service\Breakpoints\BreakpointConfiguration;
 
 class SwiperConfiguration implements \JsonSerializable
 {
@@ -19,7 +19,7 @@ class SwiperConfiguration implements \JsonSerializable
     public int $slideSpeed = 4000;
     public int $startSlide = 0;
     public int $centeredSlides = 0;
-    public int $slidesPerView = 1;
+    public float $slidesPerView = 1;
     public int $slidesPerGroup = 1;
     public EffectInterface $effect;
     public array $breakpoints = [];

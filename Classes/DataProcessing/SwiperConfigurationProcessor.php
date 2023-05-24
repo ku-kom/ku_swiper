@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace UniversityOfCopenhagen\KuSwiper\DataProcessing;
 
 use UniversityOfCopenhagen\KuSwiper\Service\SwiperConfiguration;
-use UniversityOfCopenhagen\KuSwiper\Service\BreakpointConfiguration;
-use UniversityOfCopenhagen\KuSwiper\Service\Breakpoint;
+use UniversityOfCopenhagen\KuSwiper\Service\Breakpoints\BreakpointConfiguration;
+use UniversityOfCopenhagen\KuSwiper\Service\Breakpoints\Breakpoint;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 use UniversityOfCopenhagen\KuSwiper\Effect\SlideEffect;
@@ -43,11 +43,11 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
         // Number of inline slides or records
         if (isset($processedData['data']['tx_ku_swiper_item'])) {
             $number_of_slides = intval($processedData['data']['tx_ku_swiper_item']);
-        } elseif    (isset($processedData['data']['records'])) {
+        } elseif (isset($processedData['data']['records'])) {
             $number_of_slides = intval($processedData['data']['records']);
         }
 
-        // Start slide 0 is default order, 1 means random number out of all slides
+        // Start slide 0 is default order, 1 means random number between 1 and total number of slides
         if (isset($flexFormData['startSlide']) && $flexFormData['startSlide'] === '1') {
             $swiperConfiguration->startSlide = (int) rand(1, $number_of_slides);
         }
@@ -68,9 +68,9 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
         }
 
         // Fade
-        // $swiperConfiguration->effect = SlideEffect::create();
+        $swiperConfiguration->effect = SlideEffect::create();
         if (isset($flexFormData['fade']) && $number_of_slides > 1 && $flexFormData['fade'] === '1') {
-            $swiperConfiguration->effect = FadeEffect::create(['crossFade' => true]);
+            $swiperConfiguration->effect = FadeEffect::create();
         }
 
         // Centered slides
@@ -80,10 +80,10 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
 
         // Slides to show at the time
         if (isset($flexFormData['slidesToShow-smartphone'])) {
-            $swiperConfiguration->slidesPerView = (int) $flexFormData['slidesToShow-smartphone'];
+            $swiperConfiguration->slidesPerView = (float) $flexFormData['slidesToShow-smartphone'];
         }
 
-        // Slides to swipe
+        // Slides to swipe at the time
         if (isset($flexFormData['slidesToScroll-smartphone'])) {
             $swiperConfiguration->slidesPerGroup = (int) $flexFormData['slidesToScroll-smartphone'];
         }

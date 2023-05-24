@@ -13,25 +13,6 @@
               Below: Function settings
           -->
         </f:comment>
-        <f:if condition="{totalcount} > 1 && {flexFormData.autoplay} === '1'">
-            <f:then>
-                <f:variable name="autoplay">{"delay": <f:format.raw>{flexFormData.slideSpeed}</f:format.raw>, "disableOnInteraction": false}</f:variable>
-            </f:then>
-            <f:else>
-                <f:variable name="autoplay">false</f:variable>
-            </f:else>
-        </f:if>
-        <f:if condition="{flexFormData.loop} === '1'">
-            <f:then>
-                <f:variable name="loop">true</f:variable>
-            </f:then>
-            <f:else>
-                <f:variable name="loop">false</f:variable>
-            </f:else>
-        </f:if>
-        <f:if condition="{totalcount} < 2 && {flexFormData.autoplay} === '1'">
-            <f:variable name="loop">false</f:variable>
-        </f:if>
         <f:if condition="{flexFormData.fade} === '1'">
             <f:then>
                 <f:variable name="fade">"fade", "fadeEffect": { "crossFade": true }</f:variable>
@@ -40,57 +21,40 @@
                 <f:variable name="fade">"slide"</f:variable>
             </f:else>
         </f:if>
-        <f:variable name="centeredSlides" value="{flexFormData.centeredSlides -> f:format.raw()}" />
-        <f:variable name="slidesToShow" value="{flexFormData.slidesToShow-smartphone -> f:format.raw()}" />
-        <f:variable name="slidesPerGroup" value="{flexFormData.slidesToScroll-smartphone -> f:format.raw()}" />
-        <f:comment>
-            <!--
-              Below: breakpoint settings
-          -->
-        </f:comment>
-        <f:variable name="breakpoints">"breakpoints": {"576": {"slidesPerView": <f:format.raw>{flexFormData.slidesToShow-smartphone}</f:format.raw>, "slidesPerGroup": <f:format.raw>{flexFormData.slidesToScroll-smartphone}</f:format.raw>},"768": {"slidesPerView": <f:format.raw>{flexFormData.slidesToShow-tablet}</f:format.raw>,"slidesPerGroup": <f:format.raw>{flexFormData.slidesToScroll-tablet}</f:format.raw>},"992": {"slidesPerView": <f:format.raw>{flexFormData.slidesToShow-desktop}</f:format.raw>,"slidesPerGroup": <f:format.raw>{flexFormData.slidesToScroll-desktop}</f:format.raw>},"1200": {"slidesPerView": <f:format.raw>{flexFormData.slidesToShow-widescreen}</f:format.raw>,"slidesPerGroup": <f:format.raw>{flexFormData.slidesToScroll-widescreen}</f:format.raw>}}</f:variable>
-        <f:comment>
-            <!--
-              Below: all swiper settings combined
-          -->
-        </f:comment>
-        <f:variable name="swiperSettings">{"autoplay": {autoplay}, "loop": {loop}, "initialSlide": {flexFormData.startSlide}, "centeredSlides": {centeredSlides}, "effect": {fade}, "slidesPerView": {flexFormData.slidesToShow-smartphone}, "slidesPerGroup": {flexFormData.slidesToScroll-smartphone}, {breakpoints} <f:format.raw>}</f:format.raw>
-        </f:variable>
+
         <f:comment>
             <!--
               Below: CSS classes to show/hids arrows and dots
           -->
         </f:comment>
-        <f:variable name="navigation-sm" value="{flexFormData.arrows-smartphone -> f:format.raw()}" />
-        <f:if condition="{navigation-sm} === '0'">
+        <f:if condition="{flexFormData.arrows-smartphone -> f:format.raw()} === '0'">
             <f:variable name="nav-sm" value="hide-navigation-sm" />
         </f:if>
-        <f:variable name="navigation-md" value="{flexFormData.arrows-tablet -> f:format.raw()}" />
-        <f:if condition="{navigation-md} === '0'">
+
+        <f:if condition="{flexFormData.arrows-tablet -> f:format.raw()} === '0'">
             <f:variable name="nav-md" value="hide-navigation-md" />
         </f:if>
-        <f:variable name="navigation-lg" value="{flexFormData.arrows-desktop -> f:format.raw()}" />
-        <f:if condition="{navigation-lg} === '0'">
+
+        <f:if condition="{flexFormData.arrows-desktop -> f:format.raw()} === '0'">
             <f:variable name="nav-lg" value="hide-navigation-lg" />
         </f:if>
-        <f:variable name="navigation-xl" value="{flexFormData.arrows-widescreen -> f:format.raw()}" />
-        <f:if condition="{navigation-xl} === '0'">
+
+        <f:if condition="{flexFormData.arrows-widescreen -> f:format.raw()} === '0'">
             <f:variable name="nav-xl" value="hide-navigation-xl" />
         </f:if>
-        <f:variable name="pagination-sm" value="{flexFormData.dots-spartphone -> f:format.raw()}" />
-        <f:if condition="{pagination-sm} === '0'">
+
+        <f:if condition="{flexFormData.dots-spartphone -> f:format.raw()} === '0'">
             <f:variable name="pag-sm" value="hide-pagination-sm" />
         </f:if>
-        <f:variable name="pagination-md" value="{flexFormData.dots-tablet -> f:format.raw()}" />
-        <f:if condition="{pagination-md} === '0'">
+
+        <f:if condition="{flexFormData.dots-tablet -> f:format.raw()} === '0'">
             <f:variable name="pag-md" value="hide-pagination-md" />
         </f:if>
-        <f:variable name="pagination-lg" value="{flexFormData.dots-desktop -> f:format.raw()}" />
-        <f:if condition="{pagination-lg} === '0'">
+
+        <f:if condition="{flexFormData.dots-desktop -> f:format.raw()} === '0'">
             <f:variable name="pag-lg" value="hide-pagination-lg" />
         </f:if>
-        <f:variable name="pagination-xl" value="{flexFormData.dots-widescreen -> f:format.raw()}" />
-        <f:if condition="{pagination-xl} === '0'">
+        <f:if condition="{flexFormData.dots-widescreen -> f:format.raw()} === '0'">
             <f:variable name="pag-xl" value="hide-pagination-xl" />
         </f:if>
         
