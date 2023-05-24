@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace UniversityOfCopenhagen\KuSwiper\DataProcessing;
 
-use UniversityOfCopenhagen\KuSwiper\Service\SwiperConfiguration;
+use UniversityOfCopenhagen\KuSwiper\Service\SwiperConfiguration\SwiperConfiguration;
 use UniversityOfCopenhagen\KuSwiper\Service\Breakpoints\BreakpointConfiguration;
 use UniversityOfCopenhagen\KuSwiper\Service\Breakpoints\Breakpoint;
+use UniversityOfCopenhagen\KuSwiper\Service\Effect\SlideEffect;
+use UniversityOfCopenhagen\KuSwiper\Service\Effect\FadeEffect;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-use UniversityOfCopenhagen\KuSwiper\Effect\SlideEffect;
-use UniversityOfCopenhagen\KuSwiper\Effect\FadeEffect;
 
 class SwiperConfigurationProcessor implements DataProcessorInterface
 {

@@ -7,9 +7,9 @@ declare(strict_types=1);
 * Use in fluid like this: {swiperConfiguration -> f:format.json()}
 **/
 
-namespace UniversityOfCopenhagen\KuSwiper\Service;
+namespace UniversityOfCopenhagen\KuSwiper\Service\SwiperConfiguration;
 
-use UniversityOfCopenhagen\KuSwiper\Effect\EffectInterface;
+use UniversityOfCopenhagen\KuSwiper\Service\Effect\EffectInterface;
 use UniversityOfCopenhagen\KuSwiper\Service\Breakpoints\BreakpointConfiguration;
 
 class SwiperConfiguration implements \JsonSerializable

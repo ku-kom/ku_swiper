@@ -6,7 +6,7 @@ declare(strict_types=1);
 * Process fade effect in Swiper configuration
 **/
 
-namespace UniversityOfCopenhagen\KuSwiper\Effect;
+namespace UniversityOfCopenhagen\KuSwiper\Service\Effect;
 
 final class FadeEffect implements EffectInterface
 {

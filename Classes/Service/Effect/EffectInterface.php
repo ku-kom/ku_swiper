@@ -6,7 +6,7 @@ declare(strict_types=1);
 * Process effects in Swiper configuration
 **/
 
-namespace UniversityOfCopenhagen\KuSwiper\Effect;
+namespace UniversityOfCopenhagen\KuSwiper\Service\Effect;
 
 use JsonSerializable;
 
