@@ -20,7 +20,7 @@
             </f:else>
         </f:if>
         
-        <div class="swiper-container {swiperNavigation}">
+        <div class="swiper-container{f:if(condition: swiperNavigation, then: ' {swiperNavigation}')}">
             <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}" data-id="{swiper}" data-slides='{swiperConfiguration -> f:format.json()}'>
                 <div class="swiper-wrapper">
                     <f:for each="{records}" as="record">

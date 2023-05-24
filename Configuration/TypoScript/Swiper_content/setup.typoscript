@@ -29,6 +29,10 @@ tt_content.ku_swiper_content {
     ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
+                // Custom DataProcessor for Swiper configuration settings
+        15 = UniversityOfCopenhagen\KuSwiper\DataProcessing\SwiperConfigurationProcessor
+        // Custom DataProcessor for Swiper navigation settings
+        18 = UniversityOfCopenhagen\KuSwiper\DataProcessing\SwiperNavigationProcessor
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
         20 {
             if.isTrue.field = records

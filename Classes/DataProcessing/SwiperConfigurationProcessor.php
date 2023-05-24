@@ -49,7 +49,7 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
 
         // Start slide 0 is default order, 1 means random number between 1 and total number of slides
         if (isset($flexFormData['startSlide']) && $flexFormData['startSlide'] === '1') {
-            $swiperConfiguration->startSlide = (int) rand(1, $number_of_slides);
+            $swiperConfiguration->initialSlide = (int) rand(1, $number_of_slides);
         }
 
         // Autoplay
@@ -100,6 +100,7 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
         if (isset($flexFormData['slidesToShow-desktop']) && isset($flexFormData['slidesToScroll-desktop'])) {
             $swiperConfiguration->breakpoints[Breakpoint::DESKTOP->size()] = new BreakpointConfiguration(slidesPerView: (float) $flexFormData['slidesToShow-desktop'], slidesPerGroup: (float) $flexFormData['slidesToScroll-desktop']);
         }
+        
         if (isset($flexFormData['slidesToShow-widescreen']) && isset($flexFormData['slidesToScroll-widescreen'])) {
             $swiperConfiguration->breakpoints[Breakpoint::WIDESCREEN->size()] = new BreakpointConfiguration(slidesPerView: (float) $flexFormData['slidesToShow-widescreen'], slidesPerGroup: (float) $flexFormData['slidesToScroll-widescreen']);
         }

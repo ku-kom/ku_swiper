@@ -17,7 +17,7 @@ class SwiperConfiguration implements \JsonSerializable
     public mixed $autoplay;
     public bool $loop = false;
     public int $slideSpeed = 4000;
-    public int $startSlide = 0;
+    public int $initialSlide = 0;
     public int $centeredSlides = 0;
     public float $slidesPerView = 1;
     public int $slidesPerGroup = 1;
@@ -29,7 +29,7 @@ class SwiperConfiguration implements \JsonSerializable
         return [
             'autoplay' => $this->autoplay,
             'loop' => $this->loop,
-            'startSlide' => $this->startSlide,
+            'initialSlide' => $this->initialSlide,
             'centeredSlides' => $this->centeredSlides,
             'slidesPerView' => $this->slidesPerView,
             'slidesPerGroup' => $this->slidesPerGroup,
