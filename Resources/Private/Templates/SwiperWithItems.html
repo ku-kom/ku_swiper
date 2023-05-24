@@ -3,8 +3,6 @@
 <f:section name="Main">
     <f:flashMessages />
 
-    <f:debug>{swiperConfiguration -> f:format.json()}</f:debug>
-
     <f:if condition="{records}">
         <f:variable name="swiper" value="swiper{data.uid -> f:format.raw()}" />
         <f:variable name="totalcount" value="{records -> f:count()}" />
@@ -21,44 +19,8 @@
                 <f:variable name="fade">"slide"</f:variable>
             </f:else>
         </f:if>
-
-        <f:comment>
-            <!--
-              Below: CSS classes to show/hids arrows and dots
-          -->
-        </f:comment>
-        <f:if condition="{flexFormData.arrows-smartphone -> f:format.raw()} === '0'">
-            <f:variable name="nav-sm" value="hide-navigation-sm" />
-        </f:if>
-
-        <f:if condition="{flexFormData.arrows-tablet -> f:format.raw()} === '0'">
-            <f:variable name="nav-md" value="hide-navigation-md" />
-        </f:if>
-
-        <f:if condition="{flexFormData.arrows-desktop -> f:format.raw()} === '0'">
-            <f:variable name="nav-lg" value="hide-navigation-lg" />
-        </f:if>
-
-        <f:if condition="{flexFormData.arrows-widescreen -> f:format.raw()} === '0'">
-            <f:variable name="nav-xl" value="hide-navigation-xl" />
-        </f:if>
-
-        <f:if condition="{flexFormData.dots-spartphone -> f:format.raw()} === '0'">
-            <f:variable name="pag-sm" value="hide-pagination-sm" />
-        </f:if>
-
-        <f:if condition="{flexFormData.dots-tablet -> f:format.raw()} === '0'">
-            <f:variable name="pag-md" value="hide-pagination-md" />
-        </f:if>
-
-        <f:if condition="{flexFormData.dots-desktop -> f:format.raw()} === '0'">
-            <f:variable name="pag-lg" value="hide-pagination-lg" />
-        </f:if>
-        <f:if condition="{flexFormData.dots-widescreen -> f:format.raw()} === '0'">
-            <f:variable name="pag-xl" value="hide-pagination-xl" />
-        </f:if>
         
-        <div class="swiper-container {nav-sm} {nav-md} {nav-lg} {nav-xl} {pag-sm} {pag-md} {pag-lg} {pag-xl}">
+        <div class="swiper-container {swiperNavigation}">
             <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}" data-id="{swiper}" data-slides='{swiperConfiguration -> f:format.json()}'>
                 <div class="swiper-wrapper">
                     <f:for each="{records}" as="record">
