@@ -11,13 +11,13 @@ namespace UniversityOfCopenhagen\KuSwiper\Service\Navigation;
 class SwiperNavigationConfiguration implements \JsonSerializable
 {
     public function __construct(
-        // Arrows
+        // Arrows class names
         public bool $hideNavigationSm = true,
         public bool $hideNavigationMd = true,
         public bool $hideNavigationLg = false,
         public bool $hideNavigationXl = false,
 
-        // Pagination dots
+        // Pagination dots class names
         public bool $hidePaginationSm = false,
         public bool $hidePaginationMd = false,
         public bool $hidePaginationLg = false,
