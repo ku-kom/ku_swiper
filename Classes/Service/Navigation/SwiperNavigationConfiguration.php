@@ -12,16 +12,16 @@ class SwiperNavigationConfiguration implements \JsonSerializable
 {
     public function __construct(
         // Arrows class names
-        public bool $hideNavigationSm = true,
-        public bool $hideNavigationMd = true,
-        public bool $hideNavigationLg = false,
-        public bool $hideNavigationXl = false,
+        public bool $hideNavSm = true,
+        public bool $hideNavMd = true,
+        public bool $hideNavLg = false,
+        public bool $hideNavXl = false,
 
         // Pagination dots class names
-        public bool $hidePaginationSm = false,
-        public bool $hidePaginationMd = false,
-        public bool $hidePaginationLg = false,
-        public bool $hidePaginationXl = false
+        public bool $hidePagSm = false,
+        public bool $hidePagMd = false,
+        public bool $hidePagLg = false,
+        public bool $hidePagXl = false
     ) {
 
     }
@@ -30,14 +30,14 @@ class SwiperNavigationConfiguration implements \JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-          'hideNavigationSm' => $this->hideNavigationSm,
-          'hideNavigationMd' => $this->hideNavigationMd,
-          'hideNavigationLg' => $this->hideNavigationLg,
-          'hideNavigationXl' => $this->hideNavigationXl,
-          'hidePaginationSm' => $this->hidePaginationSm,
-          'hidePaginationMd' => $this->hidePaginationMd,
-          'hidePaginationLg' => $this->hidePaginationLg,
-          'hidePaginationXl' => $this->hidePaginationXl
+          'hideNavSm' => $this->hideNavSm,
+          'hideNavMd' => $this->hideNavMd,
+          'hideNavLg' => $this->hideNavLg,
+          'hideNavXl' => $this->hideNavXl,
+          'hidePagSm' => $this->hidePagSm,
+          'hidePagMd' => $this->hidePagMd,
+          'hidePagLg' => $this->hidePagLg,
+          'hidePagXl' => $this->hidePagXl
         ];
     }
 }

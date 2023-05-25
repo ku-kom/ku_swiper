@@ -6,7 +6,7 @@
 		</TCEforms>
 		<type>array</type>
         <el>
-            <autoplay>
+            <settings.autoplay>
                 <TCEforms>
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:autoplay
                     </label>
@@ -24,7 +24,7 @@
                         <default>1</default>
                     </config>
                 </TCEforms>
-            </autoplay>
+            </settings.autoplay>
             <loop>
                 <TCEforms>
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:loop
@@ -44,7 +44,7 @@
                     </config>
                 </TCEforms>
             </loop>
-            <slideSpeed>
+            <settings.slideSpeed>
                 <TCEforms>
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidespeed
                     </label>
@@ -60,8 +60,8 @@
                         <default>4000</default>
                     </config>
                 </TCEforms>
-            </slideSpeed>
-            <startSlide>
+            </settings.slideSpeed>
+            <settings.startSlide>
                 <TCEforms>
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:startSlide
                     </label>
@@ -86,27 +86,34 @@
                         <default>0</default>
                     </config>
                 </TCEforms>
-            </startSlide>
-            <fade>
+            </settings.startSlide>
+            <settings.effect>
                 <TCEforms>
-                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:fade
+                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:effect
                     </label>
                     <exclude>1</exclude>
-                    <config>
-                        <type>check</type>
-                        <renderType>checkboxLabeledToggle</renderType>
-                        <items type="array">
-                            <numIndex index="0" type="array">
-                                <numIndex index="0"></numIndex>
-                                <labelChecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</labelChecked>
-                                <labelUnchecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</labelUnchecked>
+                    <config type="array">
+                        <type>select</type>
+                        <renderType>selectSingle</renderType>
+                        <items>
+                            <numIndex index="0">
+                                <numIndex index="0">
+                                    LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:effect_slide
+                                </numIndex>
+                                <numIndex index="1">slide</numIndex>
+                            </numIndex>
+                            <numIndex index="1">
+                                <numIndex index="0">
+                                    LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:effect_fade
+                                </numIndex>
+                                <numIndex index="1">fade</numIndex>
                             </numIndex>
                         </items>
-                        <default>0</default>
+                        <default>slide</default>
                     </config>
                 </TCEforms>
-            </fade>
-            <centeredSlides>
+            </settings.effect>
+            <settings.centeredSlides>
                 <TCEforms>
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:centeredSlides
                     </label>
@@ -124,8 +131,8 @@
                         <default>0</default>
                     </config>
                 </TCEforms>
-            </centeredSlides>
-            <slideshowHeight>
+            </settings.centeredSlides>
+            <settings.slideshowHeight>
                 <TCEforms>
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slideshowHeight
                     </label>
@@ -168,8 +175,8 @@
                         <default></default>
                     </config>
                 </TCEforms>
-            </slideshowHeight>
-            <sliderStyle>
+            </settings.slideshowHeight>
+            <settings.sliderStyle>
                 <TCEforms>
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:sliderstyle
                     </label>
@@ -194,7 +201,7 @@
                         <default></default>
                     </config>
                 </TCEforms>
-            </sliderStyle>
+            </settings.sliderStyle>
         </el>
     </ROOT>
 </T3DataStructure>

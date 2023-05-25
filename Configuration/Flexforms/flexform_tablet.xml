@@ -6,7 +6,7 @@
 		</TCEforms>
 		<type>array</type>
         <el>
-            <slidesToShow-tablet type="array">
+            <settings.slidesToShow-tablet type="array">
 				<TCEforms type="array">
 					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToShow</label>
 					<description>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToShow_desc</description>
@@ -21,8 +21,8 @@
 						<default>1</default>
 					</config>
 				</TCEforms>
-			</slidesToShow-tablet>
-			<slidesToScroll-tablet type="array">
+			</settings.slidesToShow-tablet>
+			<settings.slidesToScroll-tablet type="array">
 				<TCEforms type="array">
 					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToScroll</label>
 					<exclude>1</exclude><config type="array">
@@ -36,8 +36,8 @@
 						<default>1</default>
 					</config>
 				</TCEforms>
-			</slidesToScroll-tablet>
-			<arrows-tablet type="array">
+			</settings.slidesToScroll-tablet>
+			<settings.arrows-tablet type="array">
 				<TCEforms type="array">
 					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:arrows</label>
 					<exclude>1</exclude>
@@ -54,8 +54,8 @@
                         <default>0</default>
                     </config>
 				</TCEforms>
-			</arrows-tablet>
-			<dots-tablet type="array">
+			</settings.arrows-tablet>
+			<settings.dots-tablet type="array">
 				<TCEforms type="array">
 					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:dots</label>
 					<exclude>1</exclude>
@@ -72,7 +72,7 @@
                         <default>1</default>
                     </config>
 				</TCEforms>
-			</dots-tablet>
+			</settings.dots-tablet>
         </el>
     </ROOT>
 </T3DataStructure>

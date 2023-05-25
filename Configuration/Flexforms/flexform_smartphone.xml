@@ -6,7 +6,7 @@
 		</TCEforms>
 		<type>array</type>
         <el>
-            <slidesToShow-smartphone type="array">
+            <settings.slidesToShow-smartphone type="array">
 				<TCEforms type="array">
 					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToShow</label>
 					<description>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToShow_desc</description>
@@ -21,8 +21,8 @@
 						<default>1</default>
 					</config>
 				</TCEforms>
-			</slidesToShow-smartphone>
-			<slidesToScroll-smartphone type="array">
+			</settings.slidesToShow-smartphone>
+			<settings.slidesToScroll-smartphone type="array">
 				<TCEforms type="array">
 					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToScroll</label>
 					<exclude>1</exclude><config type="array">
@@ -36,8 +36,8 @@
 						<default>1</default>
 					</config>
 				</TCEforms>
-			</slidesToScroll-smartphone>
-			<arrows-smartphone type="array">
+			</settings.slidesToScroll-smartphone>
+			<settings.arrows-smartphone type="array">
 				<TCEforms type="array">
 					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:arrows</label>
 					<exclude>1</exclude>
@@ -54,8 +54,8 @@
                         <default>0</default>
                     </config>
 				</TCEforms>
-			</arrows-smartphone>
-			<dots-smartphone type="array">
+			</settings.arrows-smartphone>
+			<settings.dots-smartphone type="array">
 				<TCEforms type="array">
 					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:dots</label>
 					<exclude>1</exclude>
@@ -72,7 +72,7 @@
                         <default>1</default>
                     </config>
 				</TCEforms>
-			</dots-smartphone>
+			</settings.dots-smartphone>
         </el>
     </ROOT>
 </T3DataStructure>

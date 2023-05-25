@@ -38,37 +38,37 @@ class SwiperNavigationProcessor implements DataProcessorInterface
         
         // Arrows smartphone settings
         if (isset($flexFormData['arrows-smartphone']) && $flexFormData['arrows-smartphone'] === '0') {
-            $navigationConfiguration->hideNavigationSm = true;
+            $navigationConfiguration->hideNavSm = true;
         }
         // Dots smartphone settings
         if (isset($flexFormData['dots-smartphone']) && $flexFormData['dots-smartphone'] === '0') {
-            $navigationConfiguration->hidePaginationSm = true;
+            $navigationConfiguration->hidePagSm = true;
         }
         // Arrows tablet settings
         if (isset($flexFormData['arrows-tablet']) && $flexFormData['arrows-tablet'] === '0') {
-            $navigationConfiguration->hideNavigationMd = true;
+            $navigationConfiguration->hideNavMd = true;
         }
         // Dots tablet settings
         if (isset($flexFormData['dots-tablet']) && $flexFormData['dots-tablet'] === '0') {
-            $navigationConfiguration->hidePaginationMd = true;
+            $navigationConfiguration->hidePagMd = true;
         }
 
         // Arrows desktop settings
         if (isset($flexFormData['arrows-desktop']) && $flexFormData['arrows-desktop'] === '0') {
-            $navigationConfiguration->hideNavigationLg = true;
+            $navigationConfiguration->hideNavLg = true;
         }
         // Dots desktop settings
         if (isset($flexFormData['dots-desktop']) && $flexFormData['dots-desktop'] === '0') {
-            $navigationConfiguration->hidePaginationLg = true;
+            $navigationConfiguration->hidePagLg = true;
         }
 
         // Arrows widescreen settings
         if (isset($flexFormData['arrows-widescreen']) && $flexFormData['arrows-widescreen'] === '0') {
-            $navigationConfiguration->hideNavigationXl = true;
+            $navigationConfiguration->hideNavXl = true;
         }
         // Dots widescreen settings
         if (isset($flexFormData['dots-widescreen']) && $flexFormData['dots-widescreen'] === '0') {
-            $navigationConfiguration->hidePaginationXl = true;
+            $navigationConfiguration->hidePagXl = true;
         }
 
         // Convert $navigationConfiguration to array

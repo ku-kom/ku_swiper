@@ -6,7 +6,7 @@
 		</TCEforms>
 		<type>array</type>
         <el>
-            <slidesToShow-widescreen type="array">
+            <settings.slidesToShow-widescreen type="array">
 				<TCEforms type="array">
 					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToShow</label>
 					<description>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToShow_desc</description>
@@ -21,8 +21,8 @@
 						<default>1</default>
 					</config>
 				</TCEforms>
-			</slidesToShow-widescreen>
-			<slidesToScroll-widescreen type="array">
+			</settings.slidesToShow-widescreen>
+			<settings.slidesToScroll-widescreen type="array">
 				<TCEforms type="array">
 					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToScroll</label>
 					<exclude>1</exclude><config type="array">
@@ -36,8 +36,8 @@
 						<default>1</default>
 					</config>
 				</TCEforms>
-			</slidesToScroll-widescreen>
-			<arrows-widescreen type="array">
+			</settings.slidesToScroll-widescreen>
+			<settings.arrows-widescreen type="array">
 				<TCEforms type="array">
 					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:arrows</label>
 					<exclude>1</exclude>
@@ -54,8 +54,8 @@
                         <default>1</default>
                     </config>
 				</TCEforms>
-			</arrows-widescreen>
-			<dots-widescreen type="array">
+			</settings.arrows-widescreen>
+			<settings.dots-widescreen type="array">
 				<TCEforms type="array">
 					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:dots</label>
 					<exclude>1</exclude>
@@ -72,7 +72,7 @@
                         <default>1</default>
                     </config>
 				</TCEforms>
-			</dots-widescreen>
+			</settings.dots-widescreen>
         </el>
     </ROOT>
 </T3DataStructure>

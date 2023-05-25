@@ -61,8 +61,14 @@
         <trans-unit id="dots">
             <source>Display dots (pagination)</source>
         </trans-unit>
-        <trans-unit id="fade">
-            <source>Fade between slides</source>
+        <trans-unit id="effect">
+            <source>Effect between slides</source>
+        </trans-unit>
+        <trans-unit id="effect_slide">
+            <source>Slide</source>
+        </trans-unit>
+        <trans-unit id="effect_fade">
+            <source>Fade</source>
         </trans-unit>
          <trans-unit id="startSlide">
             <source>Start slide</source>
