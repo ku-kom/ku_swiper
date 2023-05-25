@@ -1,7 +1,7 @@
 {
     "name": "ku_swiper",
     "version": "1.1.0",
-    "description": "TYPO3 extension. Contains two TYPO3 content elements - one for slides containing image and/or text, one for adding existing records.",
+    "description": "TYPO3 extension which integrates Swiper touch slider: Contains two TYPO3 content elements - one for slides containing image and/or text, one for adding existing content records.",
     "scripts": {
         "concat:css": "globcat \"Resources/Public/Css/Src/**/*.css\" --output \"Resources/Public/Css/Dist/swiper-bundle.css\"",
         "minify:css": "postcss \"Resources/Public/Css/Dist/swiper-bundle.css\" --config Build/postcss.config.js \"Resources/Public/Css/Dist/*.css\" \"!Resources/Public/Css/Dist/*.min.css\" --output \"Resources/Public/Css/Dist/swiper-bundle.min.css\"",
@@ -21,7 +21,7 @@
         "JavaScript"
     ],
     "author": "Nanna Ellegaard, NEL",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "autoprefixer": "^10.4.14",
 		"postcss": "^8.4.23",
@@ -31,7 +31,7 @@
 		"globcat": "^3.0.1",
 		"npm-run-all": "^4.1.5",
 		"onchange": "^7.1.0",
-        "terser": "^5.17.4"
+        "terser": "^5.17.6"
 		
     }
 }
