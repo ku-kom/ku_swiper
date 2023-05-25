@@ -43,7 +43,7 @@ Install all dependencies in repo's root:
 $ npm install
 
 ```
-And run the following command to build development versions of concatenated js and css files:
+And run the following command to listen for changes in the /Src folders:
 
 ```
 
@@ -51,7 +51,7 @@ $ npm run watch
 
 ```
 
-The result is available in `Dist/` folder.
+The result is available in `Dist/` folders.
 
 ## Bugs and feature requests
 
