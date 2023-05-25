@@ -12,8 +12,8 @@
         <f:variable name="swiper" value="swiper{data.uid -> f:format.raw()}" />
         <f:variable name="totalcount" value="{records -> f:count()}" />
 
-        <div class="swiper-container{f:if(condition: swiperNavigation, then: ' {swiperNavigation}')}">
-            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}" data-id="{swiper}" data-slides='{swiperConfiguration -> f:format.json()}'>
+        <div class="swiper-container {swiperNavigation}">
+            <div class="swiper swiper{data.uid} {flexFormData.settings.slideshowHeight} {flexFormData.settings.sliderStyle}" data-id="{swiper}" data-slides='{swiperConfiguration -> f:format.json()}'>
                 <div class="swiper-wrapper">
                     <f:for each="{records}" as="record">
                         <f:render partial="SlideContent" arguments="{_all}" />
@@ -23,7 +23,7 @@
             <div class="{swiper}-next swiper-button-next"></div>
             <div class="{swiper}-prev swiper-button-prev"></div>
             <div class="{swiper}-dots swiper-pagination"></div>
-            <f:if condition="{flexFormData.autoplay} === '1' && {totalcount} > 1">
+            <f:if condition="{flexFormData.settings.autoplay} === '1' && {totalcount} > 1">
                 <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiper')}" class="btn play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
             </f:if>
         </div>

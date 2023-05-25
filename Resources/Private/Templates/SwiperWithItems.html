@@ -11,7 +11,7 @@
               Below: Function settings
           -->
         </f:comment>
-        <f:if condition="{flexFormData.fade} === '1'">
+        <f:if condition="{flexFormData.settings.fade} === '1'">
             <f:then>
                 <f:variable name="fade">"fade", "fadeEffect": { "crossFade": true }</f:variable>
             </f:then>
@@ -20,8 +20,8 @@
             </f:else>
         </f:if>
         
-        <div class="swiper-container{f:if(condition: swiperNavigation, then: ' {swiperNavigation}')}">
-            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}" data-id="{swiper}" data-slides='{swiperConfiguration -> f:format.json()}'>
+        <div class="swiper-container {swiperNavigation}">
+            <div class="swiper swiper{data.uid} {flexFormData.settings.slideshowHeight} {flexFormData.settings.sliderStyle}" data-id="{swiper}" data-slides='{swiperConfiguration -> f:format.json()}'>
                 <div class="swiper-wrapper">
                     <f:for each="{records}" as="record">
                         <f:render partial="SlideItems" arguments="{_all}" />
@@ -31,7 +31,7 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
-            <f:if condition="{flexFormData.autoplay} === '1' && {totalcount} > 1">
+            <f:if condition="{flexFormData.settings.autoplay} === '1' && {totalcount} > 1">
                 <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiper')}" class="btn play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
             </f:if>
         </div>
