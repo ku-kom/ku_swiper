@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     class SwiperState {
         constructor(swiper) {
             this.swiper = swiper;
-            this.children = this.swiper.querySelectorAll('.swiper-slide').length;
+            this.children = swiper.querySelectorAll('.swiper-slide').length;
             this.btn = swiper.parentNode.querySelector('.btn');
             if (this.btn) {
                 this.icon = this.btn.querySelector('.bi');
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.defaultOptions = {
                 loopPreventsSliding: false,
                 spaceBetween: 20,
-                initialSlide: this.getRandomSlide(),
+                initialSlide: this.getRandomSlide(this.children),
                 keyboard: true,
                 pagination: {
                     el: swiper.parentNode.querySelector('.swiper-pagination'),
@@ -52,13 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        getRandomSlide() {
+        getRandomSlide(max) {
             /**
-             * If set to 1, display random number out of total amount of slides.
+             * If set to 1, get random integer between two values, both inclusive.
              * Set to 0 to use default slide order.
-             * @returns initial slide  
+             * @param max: (total number of slides.
+             * @returns (int) start slide  
              */
-            return this.dataOptions.initialSlide === 1 ? Math.floor(Math.random() * (this.children- 0 + 1) + 0) : 0;
+            let min = 0;
+            max = Math.floor(max);
+            return this.dataOptions.initialSlide === 1 ? Math.floor(Math.random() * (max - min + 1) + min) : min;
         }
 
         initSwiper() {
