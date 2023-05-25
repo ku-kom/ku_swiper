@@ -38,7 +38,7 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
         // Get flexform data from Swiper content element and override default settings
         $swiperConfiguration = new SwiperConfiguration();
         
-        $flexFormData = $processedData['flexFormData'];
+        $flexFormData = $processedData['flexFormData']['settings'];
 
         // Number of inline slides or records
         if (isset($processedData['data']['tx_ku_swiper_item'])) {
@@ -55,8 +55,8 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
         // Autoplay
         if (isset($flexFormData['autoplay']) && $number_of_slides > 1 && $flexFormData['autoplay'] === '1') {
             $swiperConfiguration->autoplay = array(
-                "delay" => intval($flexFormData['slideSpeed']),
-                "disableOnInteraction" => false,
+                'delay' => intval($flexFormData['slideSpeed']),
+                'disableOnInteraction' => false,
             );
         } else {
             $swiperConfiguration->autoplay = (int) $flexFormData['autoplay'];
