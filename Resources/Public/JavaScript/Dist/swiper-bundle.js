@@ -1,6 +1,7 @@
 /**
- * Init Swiper plugin.
+ * Init Swiper plugin with settings from html data-* attributes.
  * @author NEL
+ * @copyright 2023.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             };
 
-            // Merge custom settings with default settings
+            // Merge custom Swiper settings with default settings
             this.settings = Object.assign({}, this.dataOptions, this.defaultOptions);
 
             this.initSwiper();
