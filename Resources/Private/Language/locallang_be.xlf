@@ -118,6 +118,9 @@
         <trans-unit id="sliderstyle_values">
             <source>Style: Business values</source>
         </trans-unit>
+        <trans-unit id="alt_text_desc">
+            <source>Optional: Usually empty for images in slideshows</source>
+        </trans-unit>
         </body>
     </file>
 </xliff>
