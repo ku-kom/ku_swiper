@@ -7,10 +7,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-    // Swiper play/pause classes
+    // Swiper play/pause button classes
     const play = 'bi-play-fill';
     const pause = 'bi-pause-fill';
-    const slideshows = document.querySelectorAll('.swiper');
+    const swipers = document.querySelectorAll('.swiper');
 
     class SwiperState {
         constructor(swiper) {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (this.btn) {
                 this.icon = this.btn.querySelector('.bi');
             }
-            // Declare custom Swiper settings from html data-* attributes
+            // Custom Swiper settings from html data-* attributes
             this.id = this.swiper.dataset.id;
             this.data = this.swiper.dataset.slides || {};
             if (this.data) {
@@ -55,9 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         getRandomSlide(max) {
             /**
-             * If set to 1, get random integer between two values, both inclusive.
+             * If this.dataOptions.initialSlide is set to 1, get random integer between min and max, both inclusive.
              * Set to 0 to use default slide order.
-             * @param max: (total number of slides.
+             * @param max: (total number of slides
              * @returns (int) start slide  
              */
             let min = 0;
@@ -107,12 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    if (slideshows) {
+    if (swipers) {
         /**
          * Assign Swiper to swiper elements
         */
-        Array.from(slideshows).forEach((slideshow) => {
-            const swiperEl = new SwiperState(slideshow);
+        swipers.forEach((el) => {
+            const swiperEl = new SwiperState(el);
         });
     }
 });/**
