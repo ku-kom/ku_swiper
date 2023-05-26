@@ -210,13 +210,13 @@ return [
                                 'config' => [
                                     'appearance' => [
                                         'elementBrowserType' => 'file',
-                                        'elementBrowserAllowed' => 'jpg,jpeg,png,svg',
+                                        'elementBrowserAllowed' => 'jpg,jpeg,png,svg'
                                     ],
-                                ],
+                                ]
                             ],
                             'alternative' => [
-                                'description' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:alt_text_desc',
-                            ],
+                                'description' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:alt_text_desc'
+                            ]
                         ],
                         'types' => [
                             \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
@@ -224,12 +224,7 @@ return [
                                     // --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                     alternative,--linebreak--,crop,
                                     --palette--;;filePalette'
-                            ],
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
-                                'showitem' => '
-                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.videoOverlayPalette;videoOverlayPalette,
-                                    --palette--;;filePalette'
-                            ],
+                            ]
                         ]
                     ]
                 ],
