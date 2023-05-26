@@ -214,6 +214,9 @@ return [
                                     ],
                                 ],
                             ],
+                            'alternative' => [
+                                'description' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:alt_text_desc',
+                            ],
                         ],
                         'types' => [
                             \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
