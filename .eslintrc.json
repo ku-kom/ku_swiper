@@ -1,13 +1,16 @@
 {
   "root": true,
   "env": {
-      "browser": true,
-      "es6": true,
-      "node": true
+    "browser": true,
+    "es6": true,
+    "node": true
   },
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2016
   },
   "rules": {
     "no-lonely-if": "off",
@@ -26,6 +29,6 @@
     "arrow-body-style": "off",
     "capitalized-comments": "off",
     "no-negated-condition": "off",
-    "quotes": ["error", "single", { "allowTemplateLiterals": true }]
+    "quotes": [ "error", "single", { "allowTemplateLiterals": true } ]
   }
 }
