@@ -16,7 +16,7 @@ CREATE TABLE tx_ku_swiper_item (
     header varchar(255) DEFAULT '' NOT NULL,
     bodytext text,
     slidelink varchar(255) DEFAULT '' NOT NULL,
-    image int(11) unsigned DEFAULT '0',
+    image int(11) unsigned DEFAULT '0' NOT NULL,
     mediaorient varchar(60) DEFAULT '' NOT NULL,
     imagecols tinyint(4) unsigned DEFAULT '1' NOT NULL,
     image_zoom tinyint(3) unsigned DEFAULT '0' NOT NULL,

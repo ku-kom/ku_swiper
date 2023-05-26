@@ -209,6 +209,7 @@ return [
                             'uid_local' => [
                                 'config' => [
                                     'appearance' => [
+                                        'elementBrowserType' => 'file',
                                         'elementBrowserAllowed' => 'jpg,jpeg,png,svg',
                                     ],
                                 ],
@@ -217,14 +218,19 @@ return [
                         'types' => [
                             \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                                 'showitem' => '
-                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;
-                                    //imageoverlayPalette,
+                                    // --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    alternative,--linebreak--,crop,
                                     --palette--;;filePalette'
-                            ]
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+                                'showitem' => '
+                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.videoOverlayPalette;videoOverlayPalette,
+                                    --palette--;;filePalette'
+                            ],
                         ]
                     ]
                 ],
-                $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
         ],
     ]

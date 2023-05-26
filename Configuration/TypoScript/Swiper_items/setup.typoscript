@@ -24,7 +24,6 @@ tt_content.ku_swiper {
         20 = {$swiper.templates.layoutRootPath}
     }
 
-
     ##########################
     ### DATA PREPROCESSING ###
     ##########################
@@ -47,7 +46,7 @@ tt_content.ku_swiper {
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
-                    references.fieldName = media
+                    references.fieldName = image
                 }
             }
         }
