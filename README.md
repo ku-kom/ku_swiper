@@ -14,8 +14,8 @@ TYPO3 v. 11.5, PHP 8.1
 * Create slides with existing content records
 
 ## Features
-* Play/pause buttons
-* Accessibility: No autoplay if user has enabled reduced motions in their OS/Platform.
+* Custom play/pause buttons
+* Accessibility: No autoplay if user has enabled "prefers-reduced-motion" in their operating system.
 
 ## Settings
 ### Many of Swiper options are available:
