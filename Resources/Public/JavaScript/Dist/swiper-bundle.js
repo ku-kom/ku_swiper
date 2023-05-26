@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Default settings which cannot be changed by user
             this.defaultOptions = {
                 loopPreventsSliding: false,
-                spaceBetween: 20,
+                spaceBetween: 24,
                 initialSlide: this.getRandomSlide(this.children),
                 keyboard: true,
                 pagination: {
