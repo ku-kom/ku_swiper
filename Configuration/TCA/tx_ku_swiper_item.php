@@ -222,6 +222,7 @@ return [
                             \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                                 'showitem' => '
                                     // --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    // Custom palette with some fields removed
                                     alternative,--linebreak--,crop,
                                     --palette--;;filePalette'
                             ]
