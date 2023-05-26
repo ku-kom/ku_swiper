@@ -5,19 +5,16 @@
 -- Table structure for table 'tt_content'
 --
 CREATE TABLE tt_content (
-    tx_ku_swiper_item int(11) unsigned DEFAULT '0',
+    tx_ku_swiper_item int(11) DEFAULT '0' NOT NULL,
 );
 
 --
 -- Table structure for table 'tx_ku_swiper_item'
 --
 CREATE TABLE tx_ku_swiper_item (
-    tt_content int(11) unsigned DEFAULT '0',
+    tt_content int(11) DEFAULT '0' NOT NULL,
     header varchar(255) DEFAULT '' NOT NULL,
-    bodytext text,
+    bodytext mediumtext,
     slidelink varchar(255) DEFAULT '' NOT NULL,
-    image int(11) unsigned DEFAULT '0' NOT NULL,
-    mediaorient varchar(60) DEFAULT '' NOT NULL,
-    imagecols tinyint(4) unsigned DEFAULT '1' NOT NULL,
-    image_zoom tinyint(3) unsigned DEFAULT '0' NOT NULL,
+    image int(11) DEFAULT '0' NOT NULL,
 );
