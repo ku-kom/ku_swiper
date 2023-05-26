@@ -6,7 +6,7 @@
         "concat:css": "globcat \"Resources/Public/Css/Src/**/*.css\" --output \"Resources/Public/Css/Dist/swiper-bundle.css\"",
         "minify:css": "postcss \"Resources/Public/Css/Dist/swiper-bundle.css\" --config Build/postcss.config.js \"Resources/Public/Css/Dist/*.css\" \"!Resources/Public/Css/Dist/*.min.css\" --output \"Resources/Public/Css/Dist/swiper-bundle.min.css\"",
         "concat:js": "globcat \"Resources/Public/JavaScript/Src/**/*.js\" --output \"Resources/Public/JavaScript/Dist/swiper-bundle.js\"",
-        "lint:js": "eslint --cache --cache-location .cache/.eslintcache",
+        "lint:js": "eslint \"Resources/Public/JavaScript/Src/ku-swiper-functions.js\" --cache --cache-location .cache/.eslintcache",
         "minify:js": "terser \"Resources/Public/JavaScript/Dist/swiper-bundle.js\" --output \"Resources/Public/JavaScript/Dist/swiper-bundle.min.js\" --format quote_style=1 --compress passes=2 --source-map",
         "build:js": "npm-run-all lint:js && npm-run-all concat:js && npm-run-all minify:js",
         "build:css": "npm-run-all concat:css && npm-run-all minify:css",
