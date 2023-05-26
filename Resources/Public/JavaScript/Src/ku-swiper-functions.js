@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         initSwiper() {
             /**
-             * Check if Swiper plugin exist and init Swiper
+             * Check if Swiper plugin exists and init Swiper
              */
             if (typeof Swiper !== 'undefined') {
                 this.swiper = new Swiper(this.swiper, this.settings);
