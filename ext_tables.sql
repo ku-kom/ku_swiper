@@ -1,5 +1,5 @@
 #
-# Add SQL definition of database tables
+# SQL definition of database tables for extension 'ku_swiper'
 #
 --
 -- Table structure for table 'tt_content'
