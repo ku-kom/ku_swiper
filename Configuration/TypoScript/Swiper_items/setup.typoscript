@@ -24,7 +24,6 @@ tt_content.ku_swiper {
         20 = {$swiper.templates.layoutRootPath}
     }
 
-
     ##########################
     ### DATA PREPROCESSING ###
     ##########################
@@ -43,81 +42,10 @@ tt_content.ku_swiper {
             dataProcessing {
                 10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                 10 {
-                    references.fieldName = media
+                    references.fieldName = image
                 }
             }
         }
     }
 
-}
-
-
-#########################
-### RESPONSIVE IMAGES ###
-#########################
-lib.contentElement.settings.responsiveimages.contentelements {
-    ku_swiper {
-        left {
-            multiplier {
-                default = 0.5
-                xlarge = 0.5
-                large = 0.5
-                medium = 0.5
-            }
-            gutters {
-                default = 24
-                xlarge = 24
-                large = 24
-                medium = 24
-            }
-            corrections {
-                default = 25
-                xlarge = 25
-                large = 25
-                medium = 25
-                small = 50
-                extrasmall = 50
-            }
-        }
-        top {
-            corrections {
-                default = 50
-                large = 50
-                medium = 50
-                small = 50
-                extrasmall = 50
-            }
-        }
-        right {
-            multiplier {
-                default = 0.5
-                xlarge = 0.5
-                large = 0.5
-                medium = 0.5
-            }
-            gutters {
-                default = 24
-                xlarge = 24
-                large = 24
-                medium = 24
-            }
-            corrections {
-                default = 25
-                xlarge = 25
-                large = 25
-                medium = 25
-                small = 50
-                extrasmall = 50
-            }
-        }
-        bottom {
-            corrections {
-                default = 50
-                large = 50
-                medium = 50
-                small = 50
-                extrasmall = 50
-            }
-        }
-    }
 }
