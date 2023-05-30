@@ -10,8 +10,8 @@ TYPO3 v. 11.5, PHP 8.1
 
 ## Contents
 ### Two TYPO3 content elements:
-* Create slides as items with image and/or text
-* Create slides with existing content records
+* Create a slideshow with slides as inline records with image and/or text
+* Create a slideshow with existing content records
 
 ## Features
 * Custom play/pause buttons
