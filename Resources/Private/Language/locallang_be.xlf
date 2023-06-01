@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-    <file source-language="en" datatype="plaintext" original="EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf" date="2023-01-15UTC07:12:052" product-name="ku_swiper">
+    <file source-language="en" datatype="plaintext" original="EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf" date="2023-05-15UTC07:12:052" product-name="ku_swiper">
         <header>
         </header>
         <body>
@@ -87,6 +87,9 @@
         </trans-unit>
         <trans-unit id="slidespeed">
             <source>Slide transition speed (miliseconds)</source>
+        </trans-unit>
+        <trans-unit id="thumbsgallery">
+            <source>Create thumbs galley</source>
         </trans-unit>
         <trans-unit id="slidelink">
             <source>Slide link</source>

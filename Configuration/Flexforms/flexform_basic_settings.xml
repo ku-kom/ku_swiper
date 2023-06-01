@@ -195,6 +195,25 @@
                     </config>
                 </TCEforms>
             </sliderStyle>
+            <thumbsgallery>
+                <TCEforms>
+                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:thumbsgallery
+                    </label>
+                    <exclude>1</exclude>
+                    <config>
+                        <type>check</type>
+                        <renderType>checkboxLabeledToggle</renderType>
+                        <items type="array">
+                            <numIndex index="0" type="array">
+                                <numIndex index="0"></numIndex>
+                                <labelChecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</labelChecked>
+                                <labelUnchecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</labelUnchecked>
+                            </numIndex>
+                        </items>
+                        <default>0</default>
+                    </config>
+                </TCEforms>
+            </thumbsgallery>
         </el>
     </ROOT>
 </T3DataStructure>
