@@ -4,7 +4,7 @@
 
 ### Features
 
-- **project:** Added thumbs gallery option ([4f7d0fb](https://github.com/ku-kom/ku_swiper/commit/a9267fe54d1d67c04f1978bc88ce1fe7f30c5cd7))
+- **project:** Added thumbs gallery option ([a9267fe](https://github.com/ku-kom/ku_swiper/commit/a9267fe54d1d67c04f1978bc88ce1fe7f30c5cd7))
 
 ## [1.1.0](https://github.com/ku-kom/ku_swiper/releases/tag/v1.1.0) (2023-05-18)
 
