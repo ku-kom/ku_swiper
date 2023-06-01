@@ -3,7 +3,7 @@
     "type": "typo3-cms-extension",
     "description": "Contains two TYPO3 content elements - one for slides containing image and/or text, one for adding existing records.",
     "homepage": "https://www.ku.dk/",
-    "license": ["GPL-2.0-or-later"],
+    "license": "MIT",
     "keywords": ["TYPO3 CMS"],
     "autoload": {
         "psr-4": {
