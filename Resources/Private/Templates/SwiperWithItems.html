@@ -107,7 +107,7 @@
                     <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiper')}" class="btn play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
                 </f:if>
             </div>
-            <f:if condition="{hasGallery} === '1'">
+            <f:if condition="{hasGallery} === '1' && {records.0.files}">
                 <div class="swiper swiper-gallery" data-slides='{}' data-gallery="gallery_{swiper}">
                     <div class="swiper-wrapper">
                         <f:for each="{records}" as="record">
