@@ -10,12 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Swiper play/pause button classes
     const play = 'bi-play-fill';
     const pause = 'bi-pause-fill';
-    const swipers = document.querySelectorAll('.swiper');
+    const swipers = document.querySelectorAll('.swiper-slideshow');
 
     class SwiperState {
-        constructor(swiper) {
+        constructor(swiper, thumbsgallery) {
             this.swiper = swiper;
+            this.gallery = thumbsgallery;
             this.children = swiper.querySelectorAll('.swiper-slide').length;
+
             this.btn = swiper.parentNode.querySelector('.btn');
             if (this.btn) {
                 this.icon = this.btn.querySelector('.bi');
@@ -43,11 +45,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             };
 
+            if (this.gallery) {
+                this.defaultOptions = Object.assign(this.defaultOptions, {
+                    loop: true,
+                    thumbs: {
+                        swiper: this.initThumbs(),
+                    },
+                }
+                );
+            }
+
             // Merge custom Swiper settings with default settings
             this.settings = Object.assign({}, this.dataOptions, this.defaultOptions);
 
             this.initSwiper();
             this.prefersReducedMotion();
+
             if (this.btn) {
                 this.addEventListeners();
             }
@@ -70,7 +83,27 @@ document.addEventListener('DOMContentLoaded', () => {
              * Check if Swiper plugin exists and init Swiper
              */
             if (typeof Swiper !== 'undefined') {
-                this.swiper = new Swiper(this.swiper, this.settings);
+                let slideshow = new Swiper(this.swiper, this.settings);
+            }
+        }
+
+
+        initThumbs() {
+            /**
+             * Check if Swiper plugin exists and init Swiper gallery
+             */
+            if (typeof Swiper !== 'undefined') {
+                if (this.gallery) {
+                    // Default gallery settings
+                    this.thumbsOptions = {
+                        loop: true,
+                        spaceBetween: 10,
+                        freeMode: true,
+                        watchSlidesProgress: true
+                    }
+                    let thumbs = new Swiper(this.gallery, this.thumbsOptions);
+                    return thumbs;
+                };
             }
         }
 
@@ -81,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         togglePlayPause() {
-            if (this.swiper.autoplay.running) {
+            if (this.swiper.swiper.autoplay.running) {
                 this.pauseSwiper();
             } else {
                 this.playSwiper();
@@ -89,19 +122,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         playSwiper() {
-            this.swiper.autoplay.start();
+            this.swiper.swiper.autoplay.start();
             this.icon.classList.replace(play, pause);
             this.btn.setAttribute('aria-label', translate.pause);
         }
 
         pauseSwiper() {
-            this.swiper.autoplay.stop();
+            this.swiper.swiper.autoplay.stop();
             this.icon.classList.replace(pause, play);
             this.btn.setAttribute('aria-label', translate.play);
         }
 
         prefersReducedMotion() {
-            if (this.swiper.autoplay.running && matchMedia('(prefers-reduced-motion)').matches) {
+            if (this.swiper.swiper.autoplay.running && matchMedia('(prefers-reduced-motion)').matches) {
                 this.pauseSwiper();
             }
         }
@@ -109,10 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (swipers) {
         /**
-         * Assign Swiper to swiper elements
+         * Assign Swiper to swiper elements - also thumbnail gallery if enabled
         */
         swipers.forEach((el) => {
-            const swiperEl = new SwiperState(el);
+            let thumbsgallery;
+            if (el.dataset.hasgallery === '1') {
+                thumbsgallery = el.closest('.swiper-element').querySelector('[data-gallery^="gallery_swiper_"]');
+            }
+            const swiperEl = new SwiperState(el, thumbsgallery);
         });
     }
+
 });

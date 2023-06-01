@@ -3,7 +3,7 @@
 <f:section name="Main">
     <f:flashMessages />
     <f:if condition="{records}">
-        <f:variable name="swiper" value="swiper{data.uid -> f:format.raw()}" />
+        <f:variable name="swiper" value="swiper_{data.uid -> f:format.raw()}" />
         <f:variable name="totalcount" value="{records -> f:count()}" />
         <f:comment>
             <!--
@@ -40,6 +40,7 @@
         <f:variable name="centeredSlides" value="{flexFormData.centeredSlides -> f:format.raw()}" />
         <f:variable name="slidesToShow" value="{flexFormData.slidesToShow-smartphone -> f:format.raw()}" />
         <f:variable name="slidesPerGroup" value="{flexFormData.slidesToScroll-smartphone -> f:format.raw()}" />
+        <f:variable name="hasGallery" value="{flexFormData.thumbsgallery -> f:format.raw()}" />
         <f:comment>
             <!--
               Below: breakpoint settings
@@ -90,20 +91,30 @@
         <f:if condition="{pagination-xl} === '0'">
             <f:variable name="pag-xl" value="hide-pagination-xl" />
         </f:if>
-        
-        <div class="swiper-container {nav-sm} {nav-md} {nav-lg} {nav-xl} {pag-sm} {pag-md} {pag-lg} {pag-xl}">
-            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}" data-id="{swiper}" data-slides='{swiperSettings}'>
-                <div class="swiper-wrapper">
-                    <f:for each="{records}" as="record">
-                        <f:render partial="SlideItems" arguments="{_all}" />
-                    </f:for>
+        <div class="swiper-element">
+            <div class="swiper-container {nav-sm} {nav-md} {nav-lg} {nav-xl} {pag-sm} {pag-md} {pag-lg} {pag-xl}">
+                <div class="swiper swiper-slideshow {flexFormData.slideshowHeight} {flexFormData.sliderStyle}" data-id="{swiper}" data-slides='{swiperSettings}' data-hasgallery="{flexFormData.thumbsgallery}">
+                    <div class="swiper-wrapper">
+                        <f:for each="{records}" as="record">
+                            <f:render partial="SlideItems" arguments="{_all}" />
+                        </f:for>
+                    </div>
                 </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+                <f:if condition="{flexFormData.autoplay} === '1' && {totalcount} > 1">
+                    <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiper')}" class="btn play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
+                </f:if>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
-            <f:if condition="{flexFormData.autoplay} === '1' && {totalcount} > 1">
-                <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiper')}" class="btn play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
+            <f:if condition="{hasGallery} === '1'">
+                <div class="swiper swiper-gallery" data-slides='{}' data-gallery="gallery_{swiper}">
+                    <div class="swiper-wrapper">
+                        <f:for each="{records}" as="record">
+                            <f:render partial="SlideThumbs" arguments="{_all}" />
+                        </f:for>
+                    </div>
+                </div>
             </f:if>
         </div>
         <f:render partial="JavaScriptTranslations" arguments="{_all}" />

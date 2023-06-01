@@ -27,6 +27,7 @@ TYPO3 v. 11.5, PHP 8.1
 * Lazy load
 * Random start slide
 * Fade or sliding effect
+* Thumbs gallery
 * ...etc.
 
 Use some of the many settings, or go with a basic slider.

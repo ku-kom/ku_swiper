@@ -1,0 +1,19 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:variable name="totalcount" value="{records -> f:count()}" />
+<f:if condition="{totalcount} > 1">
+    <f:variable name="lazy">lazy</f:variable>
+</f:if>
+<div class="swiper-slide">
+    <f:if condition="{record.files.0}">
+        <f:then>
+            <div class="slide-thumb">
+                <f:image image="{record.files.0}" loading="{lazy}" />
+                <f:if condition="{totalcount} > 1">
+                    <div class="swiper-lazy-preloader"></div>
+                </f:if>
+            </div>
+        </f:then>
+    </f:if>
+</div>
+
+</html>
