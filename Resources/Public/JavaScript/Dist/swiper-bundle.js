@@ -104,11 +104,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (this.gallery) {
                 // Default thumb gallery settings
                 this.thumbsOptions = {
-                    slidesPerView: 'auto',
+                    slidesPerView: 1.3,
                     loop: true,
                     spaceBetween: 10,
                     freeMode: true,
-                    watchSlidesProgress: true
+                    watchSlidesProgress: true,
+                    breakpoints: {
+                        992: {
+                          slidesPerView: 'auto',
+                        },
+                    }
                 }
                 let thumbs = new Swiper(this.gallery, this.thumbsOptions);
                 return thumbs;
