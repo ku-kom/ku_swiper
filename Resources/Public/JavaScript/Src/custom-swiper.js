@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             };
 
+            // If slideshow has a corresponding thumb gallery, add settings to control it
             if (this.gallery) {
                 this.defaultOptions = Object.assign(this.defaultOptions, {
                     loop: true,
@@ -77,14 +78,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         getRandomSlide(max) {
             /**
-             * If this.dataOptions.initialSlide is set to 1, get random integer between min and max, both inclusive.
+             * If this.dataOptions.initialSlide equals 1, get random integer between min and max, both inclusive.
              * Set to 0 to use default added slide order.
              * @param max: (int) total number of slides
              * @returns (int) start slide  
              */
-            let min = 0;
+            const min = 0;
             max = Math.floor(max);
-            return this.dataOptions.initialSlide === 1 ? Math.floor(Math.random() * (max - min + 1) + min) : min;
+            const enabled = this.dataOptions.initialSlide || 0;
+            return enabled === 1 ? Math.floor(Math.random() * (max - min + 1) + min) : min;
         }
 
         initSwiper() {
