@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (this.gallery) {
                     // Default gallery settings
                     this.thumbsOptions = {
+                        slidesPerView: 'auto',
                         loop: true,
                         spaceBetween: 10,
                         freeMode: true,
