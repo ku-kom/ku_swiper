@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             /**
              * If this.dataOptions.initialSlide is set to 1, get random integer between min and max, both inclusive.
              * Set to 0 to use default added slide order.
-             * @param max: (total number of slides
+             * @param max: (int) total number of slides
              * @returns (int) start slide  
              */
             let min = 0;
