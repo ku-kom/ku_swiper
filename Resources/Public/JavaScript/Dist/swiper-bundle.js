@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             /**
              * If this.dataOptions.initialSlide is set to 1, get random integer between min and max, both inclusive.
              * Set to 0 to use default added slide order.
-             * @param max: (total number of slides
+             * @param max: (int) total number of slides
              * @returns (int) start slide  
              */
             let min = 0;
@@ -89,31 +89,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         initSwiper() {
             /**
-             * Check if Swiper plugin exists and init Swiper
+             * init Swiper
              */
-            if (typeof Swiper !== 'undefined') {
-                let slideshow = new Swiper(this.swiper, this.settings);
-            }
+            let slideshow = new Swiper(this.swiper, this.settings);
         }
 
         initThumbs() {
             /**
-             * Check if Swiper plugin exists and init Swiper thumb gallery
+             * Iinit Swiper thumb gallery
              */
-            if (typeof Swiper !== 'undefined') {
-                if (this.gallery) {
-                    // Default gallery settings
-                    this.thumbsOptions = {
-                        slidesPerView: 'auto',
-                        loop: true,
-                        spaceBetween: 10,
-                        freeMode: true,
-                        watchSlidesProgress: true
-                    }
-                    let thumbs = new Swiper(this.gallery, this.thumbsOptions);
-                    return thumbs;
-                };
-            }
+
+            if (this.gallery) {
+                // Default thumb gallery settings
+                this.thumbsOptions = {
+                    slidesPerView: 'auto',
+                    loop: true,
+                    spaceBetween: 10,
+                    freeMode: true,
+                    watchSlidesProgress: true
+                }
+                let thumbs = new Swiper(this.gallery, this.thumbsOptions);
+                return thumbs;
+            };
         }
 
         addEventListeners() {
@@ -149,9 +146,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    if (swipers) {
+    if (swipers && typeof Swiper !== 'undefined') {
         /**
-         * Assign Swiper to swiper elements
+         * If Swiper plugin exists, assign Swiper to swiper elements
         */
         swipers.forEach((el) => {
             // If a slideshow has enabled thumbs gallery, pass it along as well
