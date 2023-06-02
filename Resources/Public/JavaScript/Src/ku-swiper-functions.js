@@ -7,7 +7,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-    // Swiper play/pause button classes
+    // Swiper play/pause button icon classes
     const play = 'bi-play-fill';
     const pause = 'bi-pause-fill';
     // Swiper elements
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.children = swiper.querySelectorAll('.swiper-slide').length;
             // Play/pause button
             this.btn = swiper.parentNode.querySelector('.btn');
+            // Button icon
             if (this.btn) {
                 this.icon = this.btn.querySelector('.bi');
             }
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.defaultOptions = Object.assign(this.defaultOptions, {
                     loop: true,
                     thumbs: {
-                        swiper: this.initThumbs(),
+                        swiper: this.initThumbs(), // thumb gallery instance
                     },
                 }
                 );
@@ -91,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         initThumbs() {
             /**
-             * Check if Swiper plugin exists and init Swiper gallery
+             * Check if Swiper plugin exists and init Swiper thumb gallery
              */
             if (typeof Swiper !== 'undefined') {
                 if (this.gallery) {
@@ -147,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
          * Assign Swiper to swiper elements
         */
         swipers.forEach((el) => {
-            // If a slideshow has enabled thumbs gallery, pass it as well
+            // If a slideshow has enabled thumbs gallery, pass it along as well
             let thumbsgallery;
             if (el.dataset.hasgallery === '1') {
                 thumbsgallery = el.closest('.swiper-element').querySelector('[data-gallery^="gallery_swiper_"]');
