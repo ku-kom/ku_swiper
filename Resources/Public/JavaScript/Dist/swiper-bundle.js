@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
              */
             const min = 0;
             max = Math.floor(max);
-            let enabled = this.dataOptions.initialSlide || 0;
-            return enabled === 1 ? Math.floor(Math.random() * (max - min + 1) + min) : min;
+            let isRandom = this.dataOptions.initialSlide || 0;
+            return isRandom === 1 ? Math.floor(Math.random() * (max - min + 1) + min) : min;
         }
 
         initSwiper() {

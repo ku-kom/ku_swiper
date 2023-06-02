@@ -120,6 +120,7 @@
 
 .swiper-gallery .swiper-slide {
   opacity: .4;
+  cursor: pointer;
 }
 
 .swiper-gallery .slide-thumb {
