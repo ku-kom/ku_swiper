@@ -29,7 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
             this.id = this.swiper.dataset.id;
             this.data = this.swiper.dataset.slides || {};
             if (this.data) {
-                this.dataOptions = JSON.parse(this.data);
+                this.dataOptions = [];
+                try {
+                    this.dataOptions = JSON.parse(this.data);
+                }
+                catch (e) {
+                    console.log(`${e}. Error getting custom data. Using Swiper defaults instead.`);
+                }
             }
 
             // Default settings which cannot be changed by user
