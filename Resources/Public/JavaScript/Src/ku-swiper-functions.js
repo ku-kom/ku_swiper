@@ -1,6 +1,6 @@
 /**
  * Init Swiper plugin with settings from html data-* attributes.
- * @author NEL
+ * @author Nanna Ellegaard
  * @copyright 2023.
  */
 
@@ -10,14 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Swiper play/pause button classes
     const play = 'bi-play-fill';
     const pause = 'bi-pause-fill';
+    // Swiper elements
     const swipers = document.querySelectorAll('.swiper-slideshow');
 
     class SwiperState {
         constructor(swiper, thumbsgallery) {
             this.swiper = swiper;
             this.gallery = thumbsgallery;
+            // Number of slides
             this.children = swiper.querySelectorAll('.swiper-slide').length;
-
+            // Play/pause button
             this.btn = swiper.parentNode.querySelector('.btn');
             if (this.btn) {
                 this.icon = this.btn.querySelector('.bi');
@@ -69,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         getRandomSlide(max) {
             /**
              * If this.dataOptions.initialSlide is set to 1, get random integer between min and max, both inclusive.
-             * Set to 0 to use default slide order.
+             * Set to 0 to use default added slide order.
              * @param max: (total number of slides
              * @returns (int) start slide  
              */
@@ -86,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 let slideshow = new Swiper(this.swiper, this.settings);
             }
         }
-
 
         initThumbs() {
             /**
@@ -143,9 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (swipers) {
         /**
-         * Assign Swiper to swiper elements - also thumbnail gallery if enabled
+         * Assign Swiper to swiper elements
         */
         swipers.forEach((el) => {
+            // If a slideshow has enabled thumbs gallery, pass it as well
             let thumbsgallery;
             if (el.dataset.hasgallery === '1') {
                 thumbsgallery = el.closest('.swiper-element').querySelector('[data-gallery^="gallery_swiper_"]');
