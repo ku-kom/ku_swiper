@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
              */
             const min = 0;
             max = Math.floor(max);
-            const enabled = this.dataOptions.initialSlide || 0;
+            let enabled = this.dataOptions.initialSlide || 0;
             return enabled === 1 ? Math.floor(Math.random() * (max - min + 1) + min) : min;
         }
 
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         initThumbs() {
             /**
-             * Iinit Swiper thumb gallery
+             * Init Swiper thumb gallery
              */
 
             if (this.gallery) {
